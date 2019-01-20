@@ -2,7 +2,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Header from './Header/Header';
+import Header from './Header/index';
+import Footer from './Footer/index';
 import '../main.scss';
 
 const TemplateWrapper = ({ children }) => (
@@ -36,10 +37,11 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:url" content="/" />
           <meta property="og:image" content="/img/og-image.jpg" />
 
-          <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Oswald|Merriweather" rel="stylesheet" />
         </Helmet>
         <Header />
-        <div>{children}</div>
+        <div className="main">{children}</div>
+        <Footer />
       </div>
     )}
   />

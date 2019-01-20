@@ -15,10 +15,14 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Category", name: "category", widget: "text"}
+      - {label: "Publication", name: "publication", widget: "text", default: "none"}
+      - {label: "PubLink", name: "publink", widget: "text", default: "none"}
+      - {label: "ImageLink", name: "imageLink", widget: "text", default: "none"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: "false"}
 
   - name: "pages"
     label: "Pages"

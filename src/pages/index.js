@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
-import ArticleCard from '../components/Article-Card';
+import HomePage from '../components/Home-Page';
 
 const IndexPage = (props) => {
   const { data } = props;
@@ -10,18 +10,7 @@ const IndexPage = (props) => {
 
   return (
     <Layout>
-      <section className="articles">
-        {posts
-          .map(({ node: post }) => (
-            <ArticleCard
-              slug={post.fields.slug}
-              key={post.id}
-              title={post.frontmatter.title}
-              date={post.frontmatter.date}
-              excerpt={post.frontmatter.excerpt}
-            />
-          ))}
-      </section>
+      <HomePage posts={posts} />
     </Layout>
   );
 };
@@ -53,6 +42,12 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
+            category
+            featured
+            excerpt
+            publication
+            pubLink
+            imageLink
           }
         }
       }

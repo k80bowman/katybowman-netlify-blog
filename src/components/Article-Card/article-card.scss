@@ -1,0 +1,35 @@
+.article-card {
+  padding: 2em 0;
+  border-bottom: $k80-red 1px solid;
+
+  &__category {
+    padding-bottom: 1em;
+    color: $k80-dark-red;
+    margin-left: 1em;
+  }
+
+  &__title {
+    padding-bottom: 1em;
+    
+    &:hover {
+      color: $k80-red;
+    }
+  }
+
+  &__excerpt {
+    margin-left: 1em;
+    padding-bottom: 1em;
+  }
+
+  &__pubLink {
+    &:hover {
+      border-bottom: none;
+    }
+  }
+
+  &__image {
+    width: 75px;
+    float: left;
+    margin: 5px 10px 5px 0;
+  }
+}

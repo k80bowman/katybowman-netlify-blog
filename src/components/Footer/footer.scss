@@ -1,0 +1,29 @@
+.footer {
+  background-color: $k80-teal;
+  height: 8em;
+  padding-top: 1em;
+
+  &__nav {
+    margin: 0 auto;
+    width: 70%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+    li a{
+      color: white;
+      font-family: $heading-stack;
+      font-size: $modular-scale-1;
+    }
+
+    li a:hover {
+      border-bottom: $k80-red solid 2px;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    height: 2em;
+    padding-top: 3em;
+  }
+}

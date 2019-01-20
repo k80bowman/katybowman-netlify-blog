@@ -8,9 +8,27 @@ $k80-teal: #569FA0;
 $k80-red: #FF1E26;
 $k80-cream: #F2EEE7;
 $k80-text: #333333;
+$k80-dark-red: #AE3522;
 
 /*
 *
 * BREAKPOINTS
 * 
 */
+
+/*
+*
+* FONTS
+* 
+*/
+
+$heading-stack: 'Oswald', sans-serif;
+$body-stack: "Merriweather","Georgia",serif;
+
+$base-font-size: 14px;
+$modular-scale-1: 1.792em;
+$modular-scale-2: 2.5em;
+$modular-scale-3: 4.48em;
+$modular-scale-4: 6.25em;
+$modular-scale-5: 11.2em;
+$modular-scale-6: 15.625em;

@@ -1,9 +1,37 @@
 body {
   margin: 0;
+  font-family: "Merriweather","Georgia",serif;
 }
 
 ul {
   padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: $heading-stack;
+    color: $k80-text;
+    line-height: 1.15;
+    margin: 0;
+}
+
+h1 {
+    font-size: $modular-scale-3;
+}
+
+h2 {
+    font-size: $modular-scale-2;
+}
+
+h3 {
+    font-size: $modular-scale-1;
+}
+
+body, p {
+    font-family: $body-stack;
+    font-size: $base-font-size;
+    color: $k80-text;
+    line-height: 1.25;
+    margin: 0;
 }
 
 a {
@@ -18,4 +46,12 @@ a {
   &:active {
     border-bottom: $k80-red solid 2px;
   }
+}
+
+.main {
+  background: url(img/letter-k-bottom.svg) no-repeat;
+  background-size: cover;
+  width: 100%;
+  margin-top: -22em;
+  margin-bottom: 0;
 }
