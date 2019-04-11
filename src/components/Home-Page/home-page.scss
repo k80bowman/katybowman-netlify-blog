@@ -1,7 +1,19 @@
 .articles {
-  padding: 15em 0 2em 0;
+  padding: 2em 0;
   width: 90%;
   margin: 0 auto;
+
+  @media #{$tablet-portrait} {
+    width: 80%;
+  }
+
+  @media #{$tablet-landscape} {
+    width: 70%;
+  }
+
+  @media #{$desktop-width} {
+    width: 50%;
+  }
 
   .blog-articles {
     padding-bottom: 2em;
@@ -9,4 +21,9 @@
 }
 
 .blog-link {
+  color: $k80-text;
+
+  &:hover {
+    color: $k80-red;
+  }
 }

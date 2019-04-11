@@ -4,17 +4,22 @@
 * 
 */
 
-$k80-teal: #569FA0;
-$k80-red: #FF1E26;
+$k80-teal: #009B91;
+$k80-red: #D30000;
+$k80-taupe: #D7D0C3;
 $k80-cream: #F2EEE7;
 $k80-text: #333333;
 $k80-dark-red: #AE3522;
+$k80-dark-blue: #003545;
 
 /*
 *
 * BREAKPOINTS
 * 
 */
+$tablet-portrait: "(min-width: 600px)";
+$tablet-landscape: "(min-width: 900px)";
+$desktop-width: "(min-width: 1200px)";
 
 /*
 *
@@ -22,7 +27,7 @@ $k80-dark-red: #AE3522;
 * 
 */
 
-$heading-stack: 'Oswald', sans-serif;
+$heading-stack: 'Cormorant Garamond', sans-serif;
 $body-stack: "Merriweather","Georgia",serif;
 
 $base-font-size: 14px;

@@ -1,5 +1,5 @@
 .footer {
-  background-color: $k80-teal;
+  border-top: 4px solid $k80-teal;
   height: 8em;
   padding-top: 1em;
 
@@ -10,18 +10,32 @@
     display: flex;
     justify-content: space-between;
 
+    @media #{$tablet-portrait} {
+      width: 60%;
+    }
+
+    @media #{$tablet-landscape} {
+      width: 50%;
+    }
+
+    @media #{$desktop-width} {
+      width: 40%;
+    }
+
     li a{
-      color: white;
+      color: $k80-text;
       font-family: $heading-stack;
       font-size: $modular-scale-1;
     }
 
     li a:hover {
+      color: $k80-teal;
       border-bottom: $k80-red solid 2px;
     }
   }
 
   &__copyright {
+    color: $k80-text;
     text-align: center;
     height: 2em;
     padding-top: 3em;

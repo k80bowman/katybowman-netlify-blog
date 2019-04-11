@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: "Merriweather","Georgia",serif;
+  color: $k80-text;
 }
 
 ul {
@@ -9,7 +10,6 @@ ul {
 
 h1, h2, h3 {
     font-family: $heading-stack;
-    color: $k80-text;
     line-height: 1.15;
     margin: 0;
 }
@@ -29,29 +29,24 @@ h3 {
 body, p {
     font-family: $body-stack;
     font-size: $base-font-size;
-    color: $k80-text;
     line-height: 1.25;
     margin: 0;
 }
 
 a {
   text-decoration: none;
-  color: $k80-text;
+  color: $k80-teal;
+
+  p, h1, h2, h3, li {
+    color: $k80-text;
+  }
 
   &:hover {
     color: $k80-red;
-    border-bottom: $k80-red solid 2px;
+    border-bottom: $k80-teal solid 2px;
   }
 
   &:active {
-    border-bottom: $k80-red solid 2px;
+    border-bottom: $k80-teal solid 2px;
   }
-}
-
-.main {
-  background: url(img/letter-k-bottom.svg) no-repeat;
-  background-size: cover;
-  width: 100%;
-  margin-top: -22em;
-  margin-bottom: 0;
 }

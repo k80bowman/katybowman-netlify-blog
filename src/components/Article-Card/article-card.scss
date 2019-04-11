@@ -1,35 +1,70 @@
 .article-card {
   padding: 2em 0;
-  border-bottom: $k80-red 1px solid;
+  border-bottom: $k80-teal 1px solid;
 
   &__category {
     padding-bottom: 1em;
-    color: $k80-dark-red;
+    color: $k80-red;
     margin-left: 1em;
   }
 
   &__title {
     padding-bottom: 1em;
-    
-    &:hover {
-      color: $k80-red;
+
+    @media #{$desktop-width} {
+      font-size: 2em;
     }
   }
 
   &__excerpt {
     margin-left: 1em;
     padding-bottom: 1em;
-  }
 
-  &__pubLink {
-    &:hover {
-      border-bottom: none;
+    @media #{$desktop-width} {
+      font-size: 1.25em;
+      line-height: 1.5em;
     }
   }
 
   &__image {
-    width: 75px;
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
     float: left;
     margin: 5px 10px 5px 0;
+  }
+
+  &__pubLink {
+    margin-left: 1em;
+    color: $k80-red;
+  }
+
+  &__excerpt-with-img {
+    display: flex;
+    align-items: top;
+    padding-bottom: 1em;
+
+    .article-card__excerpt {
+      padding: 1em 0;
+    }
+  }
+
+  &:hover {
+    border-bottom: $k80-teal 3px solid;
+
+    .article-card__title {
+      color: $k80-red;
+    }
+  }
+}
+
+.featured-article {
+  .article-card__title{
+    font-size: $modular-scale-2;
+
+    @media #{$desktop-width} {
+      font-size: 3em;
+      padding-bottom: 0.5em;
+    }
   }
 }

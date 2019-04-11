@@ -22,15 +22,6 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-    {
-      allFile(filter: { extension: { eq: "pdf" } }) {
-        edges {
-          node {
-            publicURL
-          }
-        }
-      }
-    }
   `).then((result) => {
     if (result.errors) {
       result.errors.forEach(e => console.error(e.toString()));

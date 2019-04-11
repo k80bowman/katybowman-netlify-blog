@@ -1,4 +1,5 @@
 import React from 'react';
+import { withPrefix } from 'gatsby';
 import { propTypes, defaultProps } from './types';
 
 const ArticleCard = (props) => {
@@ -29,22 +30,22 @@ const ArticleCard = (props) => {
   }
 
   return (
-    <div className="article-card">
-      <p className="article-card__category">{category}</p>
-      <a href={link}>
+    <a href={link}>
+      <div className="article-card">
+        <p className="article-card__category">{category}</p>
         <h3 className="article-card__title">{title}</h3>
-      </a>
-      {hasImage && featured ? (
-        <div className="article-card__excerpt-with-img">
-          <img className="article-card__image" src={imageLink} alt={title} />
+        {hasImage && featured ? (
+          <div className="article-card__excerpt-with-img">
+            <img className="article-card__image" src={withPrefix(imageLink)} alt={title} />
+            <p className="article-card__excerpt">{excerpt}</p>
+          </div>
+        ) : (
           <p className="article-card__excerpt">{excerpt}</p>
-        </div>
-      ) : (
-        <p className="article-card__excerpt">{excerpt}</p>
-      )
-      }
-      <a href={link} className="article-card__pubLink">{pubLinkText}</a>
-    </div>
+        )
+        }
+        <p className="article-card__pubLink">{pubLinkText}</p>
+      </div>
+    </a>
   );
 };
 

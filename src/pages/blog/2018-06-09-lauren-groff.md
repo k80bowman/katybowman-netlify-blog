@@ -7,6 +7,7 @@ featured: false
 publication:
 pubLink:
 imageLink:
+subject: reading
 excerpt: "I read an interview on The New Yorker blog with Lauren Groff the other day and I realized that I need to read more of her work. And by more I mean any at all because, somehow, I have thus far missed out on her genius."
 ---
 

@@ -7,5 +7,6 @@ featured: true
 publication: "Washington Independent Review of Books"
 pubLink: http://www.washingtonindependentreviewofbooks.com/index.php/bookreview/the-overneath
 imageLink: /images/overneath.png
+subject: writing
 excerpt: "In this fantastical collection, flawed characters face the unintended consequences of their actions."
 ---

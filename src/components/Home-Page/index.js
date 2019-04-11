@@ -29,6 +29,8 @@ const HomePage = (props) => {
                     category={post.frontmatter.category}
                     imageLink={post.frontmatter.imageLink}
                     featured={post.frontmatter.featured}
+                    publication={post.frontmatter.publication}
+                    pubLink={post.frontmatter.pubLink}
                   />
                 );
               }
@@ -61,7 +63,7 @@ const HomePage = (props) => {
             }
       </div>
       <h3>
-        <Link className="blog-link" to="/blog-posts/">more posts --></Link>
+        <Link className="blog-link" to="/blog-posts/">more posts</Link>
       </h3>
     </section>
   );

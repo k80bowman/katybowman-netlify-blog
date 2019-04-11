@@ -23,6 +23,21 @@ collections:
       - {label: "PubLink", name: "publink", widget: "text", default: "none"}
       - {label: "ImageLink", name: "imageLink", widget: "text", default: "none"}
       - {label: "Featured", name: "featured", widget: "boolean", default: "false"}
+      - {label: "Subject", name: "subject", widget: "text"}
+
+  - name: "experience"
+    label: "Experience"
+    folder: "src/pages/experience"
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "experience"}
+      - {label: "Order", name: "order", widget: "number"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Org", name: "org", widget: "string"}
+      - {label: "OrgLink", name: "orgLink", widget: "string"}
+      - {label: "Dates", name: "dates", widget: "string"}
+      - {label: "Skills", name: "skills", widget: "list"}
+      - {label: "Summary", name: "summary", widget: "markdown"}
 
   - name: "pages"
     label: "Pages"
@@ -34,10 +49,4 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/developer/index.md"
-        label: "Developer"
-        name: "developer"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+      

@@ -1,0 +1,28 @@
+.developer {
+  &__links {
+    text-align: center;
+    margin: 2em 0;
+  }
+
+  &__link {
+    &--image {
+      width: 2em;
+      margin: 0 2em;
+
+      @media #{$tablet-landscape} {
+        width: 3em;
+      }
+
+      &:hover {
+        background-color: $k80-red;
+        border-radius: 100%;
+      }
+
+      &.linkedin {
+        &:hover {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,35 +1,78 @@
 .header {
-  width: 100%;
-  height: 30em;
-  background: url(img/letter-k-top.svg) no-repeat;
+  position: relative;
 
   .name {
-    font-size: 5.3em;
+    font-size: 3.5em;
+    margin: 0.25em auto 0;
     width: 90%;
-    margin: 0 auto;
-    padding-top: 0.3em;
 
-    &__first {
-      display: block;
+    @media #{$tablet-portrait} {
+      font-size: $modular-scale-3;
+      margin-top: 0.5em;
     }
 
-    &__last {
-      display: block;
-      margin: 0 0 0 1em;
+    @media #{$desktop-width} {
+      font-size: $modular-scale-4;
+      margin-top: 0.25em;
+      width: 80%;
     }
+
+    &:hover {
+      color: $k80-red;
+    }
+  }
+
+  &__line {
+    border-top: 4px solid $k80-teal;
   }
 
   .nav {
     font-family: $heading-stack;
     list-style: none;
-    font-size: 3em;
-    text-align: center;
-    width: 100%;
-    margin: 0.5em 0 0 0;
+    margin: 0 auto;
+    font-size: 2em;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+
+    @media #{$desktop-width} {
+      width: 70%;
+      font-size: 3em;
+    }
 
     li {
-      display: inline-block;
-      margin: 0.5em;
+      margin: 0 0.25em;
+
+      @media #{$tablet-portrait} {
+        margin: 0 0.5em;
+      }
+
+      a {
+        color: $k80-text;
+      }
+
+      &:hover {
+        a {
+          color: $k80-red;
+        }
+      }
+    }
+  }
+
+  .logo {
+    margin: 0 auto 0.5em;
+    display: block;
+    width: 3em;
+
+    @media #{$tablet-portrait} {
+      width: 4em;
+      position: absolute;
+      top: 0;
+      right: 50%;
+    }
+
+    @media #{$tablet-landscape} {
+      width: 5em;
     }
   }
 }

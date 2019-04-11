@@ -6,6 +6,7 @@ category: Book Review
 featured: true
 publication: "Washington Independent Review of Books"
 pubLink: http://www.washingtonindependentreviewofbooks.com/index.php/bookreview/beast-a-novel
+subject: writing
 imageLink: /images/beast.png
 excerpt: "A deeply philosophical tale that explores the grey areas between reality and fantasy."
 ---

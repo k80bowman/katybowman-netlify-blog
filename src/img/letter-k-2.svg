@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="596px" height="810px" viewBox="0 0 596 810" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(-143.000000, 0.000000)" fill-rule="nonzero">
+            <polygon id="Triangle" fill="#009B91" transform="translate(270.488281, 141.078125) rotate(90.000000) translate(-270.488281, -141.078125) " points="129.410156 14.5898437 411.566406 267.566406 129.410156 267.566406"></polygon>
+            <polygon id="Rectangle" fill="#D7D0C3" transform="translate(369.758184, 405.216089) rotate(49.000000) translate(-369.758184, -405.216089) " points="-84.620346 310.266921 824.136714 311.546682 824.136714 499.546682 133.8327 500.165257"></polygon>
+        </g>
+    </g>
+</svg>
