@@ -6,7 +6,7 @@ category: Blog Post
 publication: none
 pubLink: none
 imageLink: /images/analog-workstation.JPG
-subject: life
+tags: ["life"]
 excerpt: "A couple of years ago, when I got my first coding job, I took my first paycheck and re-did my office. I went all out at Ikea and got some bookshelves, a pull-out couch, and a nice, big dining room table I could use as a desk. The initial intent had been to set up an area where I could write away from my large monitor. But then I never did."
 ---
 I've been a fan of [Austin Kleon's](https://austinkleon.com/)work for a long time. I hadn't read his books for a while, though, until last week I was prompted to pick them back up because I recommended them to my son, who likes to write and make things. I started with [Steal Like an Artist](https://austinkleon.com/steal/) and, I am sad to say, I had forgotten how good they are.  One of the ideas, which he's [written about elsewhere](http://fromyourdesks.com/2011/05/19/austin-kleon/) as well, is to have a digital workspace and an analog workspace. The digital workspace is for working on the computer, iPad, anything else electronic. The analog workspace, however, is a no-electronics-allowed area that's all about paper and pen/pencil/marker/etc. 

@@ -2,6 +2,8 @@ import React from 'react';
 import { propTypes } from './types';
 
 const ExperienceCard = (props) => {
+  const { position } = props;
+
   const {
     title,
     org,
@@ -9,24 +11,30 @@ const ExperienceCard = (props) => {
     dates,
     skills,
     summary,
-  } = props;
+  } = position;
 
   return (
-    <div className="experience-card">
-      <h3 className="experience-card__title">{title}</h3>
-      <a className="experience-card__org" href={orgLink}>{org}</a>
+    <div className="experience-card card">
+      <h4 className="experience-card__title card__title">{title}</h4>
+      { org !== 'none'
+        ? <a className="experience-card__org" href={orgLink}>{org}</a>
+        : false
+      }
       <p className="experience-card__dates">{dates}</p>
-      {skills.forEach((skill, index) => {
-        if (index === 0) { return (<span>{skill}</span>); }
+      <div className="experience-card__skill-list">
+        {skills.forEach((skill, index) => {
+          console.log(skill, index);
+          // if (index === 0) { return (<span>{skill}</span>); }
 
-        return (
-          <div>
-            <span>|</span>
-            <span>{skill}</span>
-          </div>
-        );
-      })}
-      <p className="experience-card__summary">{summary}</p>
+          return (
+            <div>
+              <span>|</span>
+              <span>{skill}</span>
+            </div>
+          );
+        })}
+      </div>
+      <div className="experience-card__summary" dangerouslySetInnerHTML={{ __html: summary }} />
     </div>
   );
 };

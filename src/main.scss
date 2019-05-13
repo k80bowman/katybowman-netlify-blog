@@ -1,6 +1,7 @@
 // BASE STYLES
 @import 'base-styles/variables';
 @import 'base-styles/base';
+@import 'base-styles/main';
 
 // COMPONENT STYLES
 @import 'components/Header/header';
@@ -9,3 +10,4 @@
 @import 'components/Footer/footer';
 @import 'components/Writer-Page/writer-page';
 @import 'components/Developer-Page/dev-page';
+@import 'components/Experience-Card/experience-card';

@@ -5,8 +5,9 @@ import ArticleCard from '../Article-Card';
 
 const HomePage = (props) => {
   let featuredIndex = 0;
-  let featuredPostIndex;
   let blogIndex = 0;
+  const featuredPostIndices = [];
+  const isFeatured = index => featuredPostIndices.includes(index);
 
   const { posts } = props;
 
@@ -15,10 +16,12 @@ const HomePage = (props) => {
       <div className="featured-article">
         {posts
           .map(({ node: post }, index) => {
-            if (post.frontmatter.featured) {
+            const { tags } = post.frontmatter;
+            const featured = tags && tags.includes('featured');
+            if (featured) {
               featuredIndex += 1;
               if (featuredIndex === 1) {
-                featuredPostIndex = index;
+                featuredPostIndices.push(index);
                 return (
                   <ArticleCard
                     slug={post.fields.slug}
@@ -28,9 +31,9 @@ const HomePage = (props) => {
                     excerpt={post.frontmatter.excerpt}
                     category={post.frontmatter.category}
                     imageLink={post.frontmatter.imageLink}
-                    featured={post.frontmatter.featured}
                     publication={post.frontmatter.publication}
                     pubLink={post.frontmatter.pubLink}
+                    tags={post.frontmatter.tags}
                   />
                 );
               }
@@ -42,7 +45,7 @@ const HomePage = (props) => {
       <div className="blog-articles">
         {posts
           .map(({ node: post }, index) => {
-            if (index !== featuredPostIndex) {
+            if (!isFeatured(index)) {
               blogIndex += 1;
               if (blogIndex < 6) {
                 return (
@@ -63,7 +66,7 @@ const HomePage = (props) => {
             }
       </div>
       <h3>
-        <Link className="blog-link" to="/blog-posts/">more posts</Link>
+        <Link className="blog-link" to="/posts">more posts</Link>
       </h3>
     </section>
   );

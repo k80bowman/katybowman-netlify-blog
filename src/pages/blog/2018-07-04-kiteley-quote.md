@@ -6,7 +6,7 @@ category: Blog Post
 publication: none
 pubLink: none
 imageLink: none
-subject: quote
+tags: ["quote"]
 excerpt: "...the best fiction..."
 ---
 > "...the best fiction reveals a writer who is learning something rather than trying to teach something."

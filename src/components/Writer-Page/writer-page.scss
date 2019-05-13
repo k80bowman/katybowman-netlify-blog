@@ -1,11 +1,5 @@
 .writer {
-  .articles__title {
-    @media #{$tablet-portrait} {
-      font-size: 3.5em;
-    }
-
-    @media #{$desktop-width} {
-      font-size: 5em;
-    }
+  .blog-articles {
+    margin-top: 4rem;
   }
 }

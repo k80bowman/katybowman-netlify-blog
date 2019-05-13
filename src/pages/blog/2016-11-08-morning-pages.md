@@ -3,11 +3,10 @@ templateKey: blog-post
 title: "Morning Pages"
 date: 2016-11-08
 category: Blog Post
-featured: false
 publication:
 pubLink:
 imageLink:
-subject: life
+tags: ["writing", "life"]
 excerpt: Last week was a tough week for creative work. I had family coming in from out of town and I hosted dinner for 18 on Friday, which means my creative work really was just cooking. Which is fun for me. Especially since I was trying out a couple of new recipes this year (and they were successful!).
 ---
 Last week was a tough week for creative work. I had family coming in from out of town and I hosted dinner for 18 on Friday, which means my creative work really was just cooking. Which is fun for me. Especially since I was trying out a couple of new recipes this year (and they were successful!).

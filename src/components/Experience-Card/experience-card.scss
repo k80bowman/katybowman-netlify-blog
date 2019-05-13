@@ -1,0 +1,19 @@
+.experience-card {
+  width: 90%;
+  margin: 1em auto;
+
+  &__title {
+    margin-bottom: 0.3em;
+  }
+
+  &__dates {
+    margin: 0.5em 0;
+  }
+
+  &__summary {
+    margin: 1em 0;
+    p {
+      margin-bottom: 0.5em;
+    }
+  }
+}

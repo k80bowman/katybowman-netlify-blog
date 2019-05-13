@@ -1,51 +1,67 @@
 import React from 'react';
-import { withPrefix } from 'gatsby';
+import { Link } from 'gatsby';
 import propTypes from './types';
 import ArticleCard from '../Article-Card';
+import ExperienceCard from '../Experience-Card';
+import CodepenSVG from './icons/codepenSVG.js';
+import GithubSVG from './icons/githubSVG.js';
+import LinkedinSVG from './icons/linkedinSVG.js';
 
 const DevPage = (props) => {
-  const { posts } = props;
+  const { techPosts, techRoles, communityRoles } = props;
 
   return (
-    <div className="developer">
-      <section className="developer__resume">
-        <div className="developer__experience" />
-        <div className="developer__links">
-          <a className="developer__link" href="https://github.com/k80bowman">
-            <img className="developer__link--image" src={withPrefix('/img/GitHub-Mark-120px-plus.png')} alt="link to Github profile" />
-          </a>
-          <a className="developer__link" href="https://codepen.io/k80bowman/#">
-            <img className="developer__link--image" src={withPrefix('/img/codepen.png')} alt="link to Codepen profile" />
-          </a>
-          <a className="developer__link" href="https://www.linkedin.com/in/k80bowman/">
-            <img className="developer__link--image linkedin" src={withPrefix('/img/In-Black-128px-TM.png')} alt="link to LinkedIn profile" />
-          </a>
+    <div className="developer main-content">
+      <section className="experience">
+        <h2 className="section__title">Experience</h2>
+        <h3 className="section__subtitle">Technical Roles</h3>
+        <div className="experience__cards experience__cards--technical">
+          {techRoles
+            .map(({ node: position }) => (
+              <ExperienceCard position={position.frontmatter} />
+            ))}
+        </div>
+        <h3 className="section__subtitle">Community Building</h3>
+        <div className="experience__cards experience__cards--community">
+          {communityRoles
+            .map(({ node: position }) => (
+              <ExperienceCard position={position.frontmatter} />
+            ))}
         </div>
       </section>
-      <section className="articles">
-        <h2 className="articles__title">Technical Articles</h2>
+      <section className="developer__links">
+        <a className="developer__link" href="https://github.com/k80bowman">
+          <GithubSVG />
+        </a>
+        <a className="developer__link" href="https://codepen.io/k80bowman/#">
+          <CodepenSVG />
+        </a>
+        <a className="developer__link" href="https://www.linkedin.com/in/k80bowman/">
+          <LinkedinSVG />
+        </a>
+      </section>
+      <section className="tech-articles">
+        <h2 className="section__title">Technical Articles</h2>
         <div className="blog-articles">
-          {posts
-            .map(({ node: post }) => {
-              if (post.frontmatter.subject === 'tech') {
-                return (
-                  <ArticleCard
-                    slug={post.fields.slug}
-                    key={post.id}
-                    title={post.frontmatter.title}
-                    date={post.frontmatter.date}
-                    excerpt={post.frontmatter.excerpt}
-                    category={post.frontmatter.category}
-                    publication={post.frontmatter.publication}
-                    pubLink={post.frontmatter.pubLink}
-                  />
-                );
-              }
-              return null;
-            })
+          {techPosts
+            .map(({ node: post }) => (
+              <ArticleCard
+                slug={post.fields.slug}
+                key={post.id}
+                title={post.frontmatter.title}
+                date={post.frontmatter.date}
+                excerpt={post.frontmatter.excerpt}
+                category={post.frontmatter.category}
+                publication={post.frontmatter.publication}
+                pubLink={post.frontmatter.pubLink}
+              />
+            ))
               }
         </div>
       </section>
+      <h3>
+        <Link className="blog-link" to="tags/developer">more posts</Link>
+      </h3>
     </div>
   );
 };

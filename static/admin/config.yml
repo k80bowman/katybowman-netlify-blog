@@ -22,8 +22,6 @@ collections:
       - {label: "Publication", name: "publication", widget: "text", default: "none"}
       - {label: "PubLink", name: "publink", widget: "text", default: "none"}
       - {label: "ImageLink", name: "imageLink", widget: "text", default: "none"}
-      - {label: "Featured", name: "featured", widget: "boolean", default: "false"}
-      - {label: "Subject", name: "subject", widget: "text"}
 
   - name: "experience"
     label: "Experience"
@@ -35,6 +33,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Org", name: "org", widget: "string"}
       - {label: "OrgLink", name: "orgLink", widget: "string"}
+      - {label: "Type", name: "type", widget: "string"}
       - {label: "Dates", name: "dates", widget: "string"}
       - {label: "Skills", name: "skills", widget: "list"}
       - {label: "Summary", name: "summary", widget: "markdown"}

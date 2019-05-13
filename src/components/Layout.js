@@ -6,7 +6,7 @@ import Header from './Header/index';
 import Footer from './Footer/index';
 import '../main.scss';
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
@@ -37,11 +37,12 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:url" content="/" />
           <meta property="og:image" content="/img/og-image.jpg" />
 
-          <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Merriweather" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Oswald|Merriweather" rel="stylesheet" />
         </Helmet>
-        <Header />
-        <div className="main">{children}</div>
-        <Footer />
+        <div className="main">
+          <Header location={location} />
+          <div className="page-content">{children}</div>
+        </div>
       </div>
     )}
   />

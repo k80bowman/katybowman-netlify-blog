@@ -2,27 +2,39 @@
   &__links {
     text-align: center;
     margin: 2em 0;
+    padding: 2em 0;
+    border-top: 2px solid $k80-red;
+    border-bottom: 2px solid $k80-red;
+
+    a {
+      &:hover {
+        fill: $k80-red;
+        border-bottom: none;
+      }
+
+      &:active {
+        border-bottom: none;
+      }
+    }
   }
 
   &__link {
-    &--image {
+    .svg-icon {
       width: 2em;
       margin: 0 2em;
 
       @media #{$tablet-landscape} {
         width: 3em;
       }
+    }
+  }
 
-      &:hover {
-        background-color: $k80-red;
-        border-radius: 100%;
-      }
+  .experience__cards {
+    margin-top: 1rem;
 
-      &.linkedin {
-        &:hover {
-          border-radius: 0;
-        }
-      }
+    @media #{$tablet-portrait} {
+      display: grid;
+      grid-template-columns: 50% 50%;
     }
   }
 }

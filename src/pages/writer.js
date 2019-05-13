@@ -6,11 +6,12 @@ import WriterPageComponent from '../components/Writer-Page';
 
 const WriterPage = (props) => {
   const { data } = props;
-  const { edges: posts } = data.allMarkdownRemark;
+  const { edges: featuredPublication } = data.featuredPublication;
+  const { edges: blogPosts } = data.blogPosts;
 
   return (
-    <Layout>
-      <WriterPageComponent posts={posts} />
+    <Layout location="writer">
+      <WriterPageComponent blogPosts={blogPosts} featuredPublication={featuredPublication} />
     </Layout>
   );
 };
@@ -27,30 +28,27 @@ export default WriterPage;
 
 export const pageQuery = graphql`
   query WriterQuery {
-    allMarkdownRemark(
+    featuredPublication: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
+      filter: { frontmatter: { 
+        templateKey: { eq: "blog-post" },
+        tags: { in: "featured" }
+      }},
+      limit: 3
     ) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-            category
-            featured
-            excerpt
-            publication
-            pubLink
-            imageLink
-          }
-        }
-      }
+      totalCount
+      ...articleFields
+  },
+  blogPosts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] },
+      filter: { frontmatter: { 
+        templateKey: { eq: "blog-post" },
+        tags: { nin: "featured", in: "writing" }
+      }},
+    limit: 5
+    ) {
+      totalCount
+      ...articleFields
     }
   }
 `;

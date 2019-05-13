@@ -3,11 +3,10 @@ templateKey: blog-post
 title: "I Was At the Women's March"
 date: 2017-02-07
 category: Blog Post
-featured: false
 publication:
 pubLink:
 imageLink:
-subject: life
+tags: ["writing", "general"]
 excerpt: "Just two short weeks ago, I was at the Women’s March on Washington, and yet it already seems a world away. Not like it didn’t happen, but like it happened in some other world, in some other timeline, separate from my everyday world of kids, husband, dogs, and work. And in a way, I suppose it kind of did."
 ---
 Just two short weeks ago, I was at the Women’s March on Washington, and yet it already seems a world away. Not like it didn’t happen, but like it happened in some other world, in some other timeline, separate from my everyday world of kids, husband, dogs, and work. And in a way, I suppose it kind of did.

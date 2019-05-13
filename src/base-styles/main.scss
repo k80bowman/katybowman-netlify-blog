@@ -1,0 +1,67 @@
+.main {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-content {
+  background-color: white;
+  box-shadow: 10px 9px 13px rgba(0, 0, 0, .5);
+  margin: 46px 0;
+  width: 70%;
+}
+
+.section__title {
+  @media #{$tablet-portrait} {
+    font-size: 3.5em;
+    padding-bottom: 0.25em;
+    box-shadow: 0px 3px 0px 0px rgba(219,0,0,1);
+  }
+}
+
+.section__subtitle {
+  margin-top: 1em;
+}
+
+.main-content {
+  padding: 2em 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.blog-articles {
+  padding-bottom: 2em;
+}
+
+.blog-link {
+  color: $k80-text;
+
+  &:hover {
+    color: $k80-red;
+  }
+}
+
+.articles {
+  padding: 2em 0;
+  width: 80%;
+  margin: 0 auto;
+
+  .blog-articles {
+    padding-bottom: 2em;
+  }
+}
+
+.blog-link {
+  color: $k80-text;
+
+  &:hover {
+    color: $k80-red;
+  }
+}
+
+.card {
+  &__title {
+    font-size: 1.4em;
+  }
+}

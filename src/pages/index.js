@@ -9,7 +9,7 @@ const IndexPage = (props) => {
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
-    <Layout>
+    <Layout location="home">
       <HomePage posts={posts} />
     </Layout>
   );
@@ -31,26 +31,7 @@ export const pageQuery = graphql`
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
     ) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-            category
-            featured
-            excerpt
-            publication
-            pubLink
-            imageLink
-          }
-        }
-      }
+      ...articleFields
     }
   }
 `;

@@ -2,13 +2,15 @@ body {
   margin: 0;
   font-family: "Merriweather","Georgia",serif;
   color: $k80-text;
+  background-image: linear-gradient(to bottom right, $k80-red, $k80-dark-red);
+  min-height: 100vh;
 }
 
 ul {
   padding: 0;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: $heading-stack;
     line-height: 1.15;
     margin: 0;
@@ -35,18 +37,19 @@ body, p {
 
 a {
   text-decoration: none;
-  color: $k80-teal;
+  color: $k80-red;
 
   p, h1, h2, h3, li {
     color: $k80-text;
   }
 
   &:hover {
-    color: $k80-red;
-    border-bottom: $k80-teal solid 2px;
+    font-weight: bold;
+    border-bottom: $k80-red solid 2px;
   }
 
   &:active {
-    border-bottom: $k80-teal solid 2px;
+    font-weight: bold;
+    border-bottom: $k80-red solid 2px;
   }
 }

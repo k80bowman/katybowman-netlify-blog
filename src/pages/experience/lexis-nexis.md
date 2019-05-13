@@ -4,6 +4,7 @@ order: 3
 title: Software Engineer
 org: Lexis Nexis
 orgLink: https://www.lexisnexis.com/
+type: tech
 dates: March 2016 to June 2017
 skills: 
   - HTML

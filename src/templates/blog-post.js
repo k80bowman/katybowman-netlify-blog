@@ -16,18 +16,14 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <section className="post main-content">
       {helmet || ''}
       <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{excerpt}</p>
-            <PostContent content={content} />
-          </div>
-        </div>
+        <h2 className="section__title">
+          {title}
+        </h2>
+        <p>{excerpt}</p>
+        <PostContent content={content} />
       </div>
     </section>
   );
@@ -35,6 +31,7 @@ export const BlogPostTemplate = ({
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
+  excerpt: PropTypes.string,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,

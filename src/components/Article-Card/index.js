@@ -12,11 +12,12 @@ const ArticleCard = (props) => {
     publication,
     pubLink,
     imageName,
-    featured,
+    tags,
     imageLink,
   } = props;
 
   const hasImage = imageName !== 'none';
+  const featured = tags && tags.includes('featured');
 
   let link;
   let pubLinkText;
@@ -31,9 +32,9 @@ const ArticleCard = (props) => {
 
   return (
     <a href={link}>
-      <div className="article-card">
+      <div className="article-card card">
         <p className="article-card__category">{category}</p>
-        <h3 className="article-card__title">{title}</h3>
+        <h3 className="article-card__title card__title">{title}</h3>
         {hasImage && featured ? (
           <div className="article-card__excerpt-with-img">
             <img className="article-card__image" src={withPrefix(imageLink)} alt={title} />

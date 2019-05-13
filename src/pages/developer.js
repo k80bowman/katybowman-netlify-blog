@@ -6,19 +6,30 @@ import DevPageComponent from '../components/Developer-Page';
 
 const DeveloperPage = (props) => {
   const { data } = props;
-  const { edges: posts } = data.allMarkdownRemark;
-  console.log(posts);
+  const { edges: techPosts } = data.techPosts;
+  const { edges: techRoles } = data.techRoles;
+  const { edges: communityRoles } = data.communityRoles;
 
   return (
-    <Layout>
-      <DevPageComponent posts={posts} />
+    <Layout location="developer">
+      <DevPageComponent
+        techPosts={techPosts}
+        techRoles={techRoles}
+        communityRoles={communityRoles}
+      />
     </Layout>
   );
 };
 
 DeveloperPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    communityRoles: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+    techPosts: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+    techRoles: PropTypes.shape({
       edges: PropTypes.array,
     }),
   }).isRequired,
@@ -27,32 +38,36 @@ DeveloperPage.propTypes = {
 export default DeveloperPage;
 
 export const pageQuery = graphql`
-  query DeveloperQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
+  query TechnicalRolesQuery {
+    techRoles: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___order] },
+      filter: { frontmatter: { 
+        templateKey: { eq: "experience" },
+        type: { eq: "tech" }
+      }}
     ) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-            category
-            featured
-            excerpt
-            publication
-            pubLink
-            imageLink
-            subject
-          }
-        }
-      }
+      totalCount
+      ...experienceFields
+  },
+  communityRoles: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___order] },
+      filter: { frontmatter: { 
+        templateKey: { eq: "experience" },
+        type: { eq: "community" }
+      }}
+    ) {
+      totalCount
+      ...experienceFields
+    },
+    techPosts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] },
+      filter: { frontmatter: { 
+        templateKey: { eq: "blog-post" },
+        tags: { in: "developer" }
+      }}
+      limit: 3
+    ) {
+      ...articleFields
     }
   }
 `;
