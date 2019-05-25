@@ -1,15 +1,34 @@
 .main {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+
+  @media #{$tablet-portrait} {
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media #{$tablet-landscape} {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  @media #{$desktop-width} {
+    width: 90%;
+  }
 }
 
 .page-content {
   background-color: white;
   box-shadow: 10px 9px 13px rgba(0, 0, 0, .5);
-  margin: 46px 0;
-  width: 70%;
+
+  @media #{$tablet-portrait} {
+    margin: 46px 0;
+    width: 70%;
+  }
+
+  @media #{$extra-wide} {
+    width: 80%;
+  }
 }
 
 .section__title {
