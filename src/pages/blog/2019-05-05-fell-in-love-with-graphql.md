@@ -1,0 +1,71 @@
+---
+templateKey: blog-post
+title: "I Fell in Love with GraphQL Last Night"
+date: 2019-05-05
+category: Blog Post
+publication: none
+pubLink: none
+imageLink: none
+tags: ["developer"]
+excerpt: "When I started, I didn't really know much of anything about GraphQL. And, to be honest, the only thing I really knew about Gatsby was that I could use it to build a static site with React. Plus it works well with the Netlify CMS, which is something I also really want to use. Since then, I've learned a lot. But last night, my knowledge of GraphQL took a leap forward and now I really love it."
+---
+
+I am both a writer and a web developer. And I really enjoy both things and want to be able to blog about both things, seperately and together, so for the last few months I've been building myself a new website. And I want my website to be a place where I can have posts about tech and writing and display them both separately and together. I also wanted it to be a place where I can try out new things and learn some stuff along the way. Which is why I chose to build it with Gatsby.js, which uses GraphQL for data queries.
+
+When I started, I didn't really know much of anything about GraphQL. And, to be honest, the only thing I really knew about Gatsby was that I could use it to build a static site with React. Plus it works well with the Netlify CMS, which is something I also really want to use. Since then, I've learned a lot. But last night, my knowledge of GraphQL took a leap forward and now I really love it.
+
+I wish I could remember where I heard it, but at some point I either heard someone say or read somewhere that the difference between GraphQL and REST APIs is that with a REST API you have to take the data you get, whereas with GraphQL you can ask for exactly the data you want. And frankly, the idea that I might need to ask for specific data seemed a bit overkill for my personal website. What kind of data would I need to ask for? It's just blog posts, right?
+
+Well, it was at first. But then I decided to make my website a bit more complex than that. I wanted a site that had a page dedicated to my writing where it would only show post related to writing and the writing process. On that page I also wanted two sections, one that would highlight my featured publications and one that would list my latest writing-related blog posts. And then, to go with that, I wanted a page that would showcase my developer chops, that would have a listing of my technical positions (and tech-adjacent activities) and blog posts related to being a developer.
+
+And along the way, I decided that it would be easier if I saved my different technical and tech-adjacent roles as data, rather than hard-coding them in HTML. Since I'm using React and all, I might as well _use it_ and build some re-usable components, right?
+
+I got all of this coded up and I was feeling OK about it. I was getting my data, I was iterating through my data and selecting the pieces that I needed, and it was all working, but it still felt convoluted. I was having to save index numbers as variables to make sure that I wasn't repeating posts in both the Featured Publications and Blog Posts section of my Writing page. On the Developer page I realized that I wanted to list my technical roles separately from my tech-adjacent roles, so I was using JavaScript to loop through that data and pull it apart.
+
+For example, this is what my code looked like for my technical roles section:
+
+```jsx
+<div className="experience__cards experience__cards--technical">
+  {techRoles
+    .map(({ node: position }) =>{
+      return (
+        <ExperienceCard position={position.frontmatter} />
+      );
+    }
+    return null;
+  })}
+</div>
+```
+
+It's not too bad, just an if statement. But, as I was doing some reading last night, I realized that I could do this better. And I could do this better because all of that logic didn't need to live in my JavaScript. It could live in my query, which means I could get rid of that if statement altogether.
+
+So now, my query looks like this:
+
+```graphql
+query TechnicalRolesQuery {
+  techRoles: allMarkdownRemark(
+    sort: { order: DESC, fields: [frontmatter__order] },
+    filter: { frontmatter: {
+      templateKey: { eq: "experience" },
+      type: { eq: "tech" }
+    }}
+    ...
+  )
+}
+```
+
+And my JavaScript looks like this:
+
+```jsx
+<div className="experience__cards experience__cards--technical">
+  {techRoles
+    .map(({ node: position }) => (
+      <ExperienceCard position={position.frontmatter} />
+    ))}
+</div>
+```
+
+This may not seem all that dramatic, but it means that the logic for determining which data gets displayed _lives with the data request_ rather than having to have a bunch of JavaScript to navigate the data and force it into a shape that works for what you want to display. This feels so much more logical and neater than the alternative, and this is what blew my mind a bit last night. Intellectually, I knew that this was what GraphQL was designed for, but it wasn't until I actually used it this way that the truth of it all hit me. And now I can't wait to dig in and learn more.
+
+
+

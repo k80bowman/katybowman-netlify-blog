@@ -22,7 +22,7 @@ const ArticleCard = (props) => {
   let link;
   let pubLinkText;
 
-  if (pubLink !== 'none' && publication !== 'none') {
+  if (pubLink !== 'none' && pubLink && publication !== 'none') {
     link = pubLink;
     pubLinkText = publication;
   } else {

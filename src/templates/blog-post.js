@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
 export const BlogPostTemplate = ({
   content,
   contentComponent,
-  excerpt,
   title,
   helmet,
+  date,
 }) => {
   const PostContent = contentComponent || Content;
 
   return (
     <section className="post main-content">
       {helmet || ''}
-      <div className="container content">
+      <div className="post__content">
         <h2 className="section__title">
           {title}
         </h2>
-        <p>{excerpt}</p>
+        <p className="post__date">{date}</p>
         <PostContent content={content} />
       </div>
     </section>
@@ -31,11 +30,11 @@ export const BlogPostTemplate = ({
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
-  excerpt: PropTypes.string,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
+  date: PropTypes.string,
 };
 
 const BlogPost = ({ data }) => {
@@ -56,6 +55,7 @@ const BlogPost = ({ data }) => {
           </Helmet>
 )}
         title={post.frontmatter.title}
+        date={post.frontmatter.date}
       />
     </Layout>
   );
