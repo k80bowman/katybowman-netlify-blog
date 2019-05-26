@@ -1,8 +1,8 @@
 .developer {
   &__links {
     text-align: center;
-    margin: 2em 0;
-    padding: 2em 0;
+    margin: 2rem 0;
+    padding: 2rem 0;
     border-top: 2px solid $k80-red;
     border-bottom: 2px solid $k80-red;
 
@@ -20,11 +20,11 @@
 
   &__link {
     .svg-icon {
-      width: 2em;
-      margin: 0 2em;
+      width: 2rem;
+      margin: 0 2rem;
 
       @media #{$tablet-landscape} {
-        width: 3em;
+        width: 3rem;
       }
     }
   }
