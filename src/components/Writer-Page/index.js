@@ -44,9 +44,7 @@ const WriterPage = (props) => {
           ))
           }
       </section>
-      <h3>
-        <Link className="blog-link" to="tags/writing">more posts</Link>
-      </h3>
+      <Link className="blog-link" to="tags/writing">more posts</Link>
     </div>
   );
 };

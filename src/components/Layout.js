@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './Header/index';
-import Footer from './Footer/index';
 import '../main.scss';
 
 const TemplateWrapper = ({ children, location }) => (

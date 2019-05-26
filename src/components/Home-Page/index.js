@@ -65,9 +65,7 @@ const HomePage = (props) => {
           })
             }
       </div>
-      <h3>
-        <Link className="blog-link" to="/posts">more posts</Link>
-      </h3>
+      <Link className="blog-link" to="/posts">more posts</Link>
     </section>
   );
 };

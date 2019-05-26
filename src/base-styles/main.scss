@@ -34,27 +34,30 @@
 .section__title {
   @media #{$tablet-portrait} {
     font-size: 3.5em;
-    padding-bottom: 0.25em;
+    padding-bottom: 0.25rem;
     box-shadow: 0px 3px 0px 0px rgba(219,0,0,1);
   }
 }
 
 .section__subtitle {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .main-content {
-  padding: 2em 0;
+  padding: 2rem 0;
   width: 80%;
   margin: 0 auto;
 }
 
 .blog-articles {
-  padding-bottom: 2em;
+  padding-bottom: 2rem;
 }
 
-.blog-link {
+.blog-link, .pagination-link {
   color: $k80-text;
+  font-family: $heading-stack;
+  line-height: 1.15;
+  font-size: $modular-scale-1;
 
   &:hover {
     color: $k80-red;
@@ -62,25 +65,29 @@
 }
 
 .articles {
-  padding: 2em 0;
+  padding: 2rem 0;
   width: 80%;
   margin: 0 auto;
-
-  .blog-articles {
-    padding-bottom: 2em;
-  }
 }
 
-.blog-link {
-  color: $k80-text;
-
-  &:hover {
-    color: $k80-red;
-  }
+.blog-articles {
+  padding-bottom: 2rem;
 }
 
 .card {
   &__title {
     font-size: 1.4em;
+  }
+}
+
+.pagination {
+  padding-bottom: 2rem;
+
+  .next {
+    float: right;
+  }
+
+  .previous {
+    float: left;
   }
 }
