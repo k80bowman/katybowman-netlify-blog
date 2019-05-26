@@ -11,12 +11,11 @@ const ArticleCard = (props) => {
     slug,
     publication,
     pubLink,
-    imageName,
     tags,
     imageLink,
   } = props;
 
-  const hasImage = imageName !== 'none';
+  const hasImage = imageLink && imageLink !== 'none';
   const featured = tags && tags.includes('featured');
 
   let link;

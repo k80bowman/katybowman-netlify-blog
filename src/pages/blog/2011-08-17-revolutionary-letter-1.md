@@ -1,0 +1,11 @@
+---
+templateKey: blog-post
+title: "The Last Poem I Loved: Revolutionary Letter /#1 by Diane DiPrima"
+date: 2011-08-17
+category: Essay
+publication: "The Rumpus"
+pubLink: http://therumpus.net/2011/08/the-last-poem-i-loved-revolutionary-letter-1-by-diane-di-prima/
+image: none
+excerpt: "The summer I turned 19, after my first year of college, I took off, leaving behind my small midwestern campus, to work in a gift shop in Yosemite National Park. That’s a whole other story, and maybe someday I’ll tell it, but for now it’s enough to know that I was there. And that one night, some friends and I decided to take a trip to San Francisco on our day off."
+tags: ["writing", "publication", "featured"]
+---
