@@ -18,8 +18,8 @@ I think the change started with a pair of heels I bought to wear to work in my t
 
 It spread out into accessories, too. I've gone through several red purses, I have a red scarf I wear in the winter, a red band for my watch. I bought a giant red backpack that I love dearly and carry every day to work.
 
-!\[My gigantic red backpack, covered with patches](/img/fullsizeoutput_e1a.jpeg "red backpack")
+![My gigantic red backpack, covered with patches](/img/fullsizeoutput_e1a.jpeg "red backpack")
 
-When I was looking to redesign my website, it took some time, but in the end I realized that the only thing I really wanted was something bold, something \_me\_. I wanted something red.
+When I was looking to redesign my website, it took some time, but in the end I realized that the only thing I really wanted was something bold, something _me_. I wanted something red.
 
 And so with that it's time, I guess, to admit that blue is no longer my favorite color. Don't get me wrong, I still like a deep, rich blue. But I don't like it as much as a love a vibrant red.
