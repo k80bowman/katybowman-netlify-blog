@@ -11,7 +11,6 @@ tags:
   - publication
 category: Sparkbox Foundry Article
 publication: Sparkbox Foundry
-publink: 'https://www.katybowman.com/developer/'
+publink: https://seesparkbox.com/foundry/4_strategies_to_advocate_for_continuous_code_quality_improvement
 imageLink: none
 ---
-let's see if this publishes.
