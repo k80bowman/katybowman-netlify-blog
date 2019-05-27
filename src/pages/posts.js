@@ -1,17 +1,13 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import PostList from '../components/Post-List';
+import Pagination from '../components/Pagination';
 
 const BlogPostsPage = (props) => {
   const { data, pageContext } = props;
   const { edges: blogPosts } = data.blogPosts;
-  const { currentPage, numPages } = pageContext;
-  const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString();
-  const nextPage = (currentPage + 1).toString();
 
   return (
     <Layout location="blog-posts">
@@ -20,18 +16,7 @@ const BlogPostsPage = (props) => {
         <div className="blog-articles">
           <PostList blogPosts={blogPosts} />
         </div>
-        <div className="pagination">
-          {!isFirst && (
-          <Link className="pagination-link previous" to={`posts/${prevPage}`} rel="prev">
-            Previous Page
-          </Link>
-          )}
-          {!isLast && (
-          <Link className="pagination-link next" to={`posts/${nextPage}`} rel="next">
-            Next Page
-          </Link>
-          )}
-        </div>
+        <Pagination pageContext={pageContext} pageSlug="posts" />
       </div>
     </Layout>
   );
@@ -52,11 +37,11 @@ BlogPostsPage.propTypes = {
 export default BlogPostsPage;
 
 export const pageQuery = graphql`
-  query BlogPostsQuery($skip: Int!, $limit: Int!) {
+  query BlogPostsQuery($skip: Int, $limit: Int) {
     blogPosts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
-      limit: $limit
-      skip: $skip
+      limit: $limit,
+      skip: $skip,
       filter: { frontmatter: { 
         templateKey: { eq: "blog-post" }
       }},

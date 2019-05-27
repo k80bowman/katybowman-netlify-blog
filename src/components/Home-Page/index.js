@@ -14,6 +14,7 @@ const HomePage = (props) => {
   return (
     <section className="articles">
       <div className="featured-article">
+        <h2 className="section__title">Featured Publication</h2>
         {posts
           .map(({ node: post }, index) => {
             const { tags } = post.frontmatter;
@@ -43,6 +44,7 @@ const HomePage = (props) => {
             }
       </div>
       <div className="blog-articles">
+        <h2 className="section__title section__title--secondary">Blog Posts</h2>
         {posts
           .map(({ node: post }, index) => {
             if (!isFeatured(index)) {

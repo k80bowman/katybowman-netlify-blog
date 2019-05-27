@@ -17,6 +17,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               templateKey
+              tags
             }
           }
         }
@@ -29,23 +30,53 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges;
+    const writingPosts = posts.filter(post => post.node.frontmatter.tags
+      && post.node.frontmatter.tags.includes('writing'));
+    const devPosts = posts.filter(post => post.node.frontmatter.tags
+      && post.node.frontmatter.tags.includes('developer'));
     const postsPerPage = 10;
-    const numPages = Math.ceil(posts.length / postsPerPage);
+    const numPages = postList => Math.ceil(postList.length / postsPerPage);
 
-    Array.from({ length: numPages }).forEach((__, i) => {
+    Array.from({ length: numPages(posts) }).forEach((__, i) => {
       createPage({
         path: i === 0 ? '/posts' : `/posts/${i + 1}`,
         component: path.resolve('./src/pages/posts.js'),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
-          numPages,
+          numPages: numPages(posts),
           currentPage: i + 1,
         },
       });
     });
 
-    posts.forEach((edge) => {
+    Array.from({ length: numPages(writingPosts) }).forEach((__, i) => {
+      createPage({
+        path: i === 0 ? '/tags/writing' : `/tags/writing/${i + 1}`,
+        component: path.resolve('./src/pages/tags/writing.js'),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numPages(writingPosts),
+          currentPage: i + 1,
+        },
+      });
+    });
+
+    Array.from({ length: numPages(devPosts) }).forEach((__, i) => {
+      createPage({
+        path: i === 0 ? '/tags/developer' : `/tags/developer/${i + 1}`,
+        component: path.resolve('./src/pages/tags/developer.js'),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numPages(devPosts),
+          currentPage: i + 1,
+        },
+      });
+    });
+
+    posts.forEach((edge, i) => {
       const { id } = edge.node;
       if (edge.node.frontmatter.templateKey !== 'experience') {
         createPage({
@@ -56,33 +87,12 @@ exports.createPages = ({ actions, graphql }) => {
           // additional data can be passed via context
           context: {
             id,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            currentPage: i + 1,
           },
         });
       }
-    });
-
-    // Tag pages:
-    let tags = [];
-    // Iterate through each post, putting all found tags into `tags`
-    posts.forEach((edge) => {
-      if (_.get(edge, 'node.frontmatter.tags')) {
-        tags = tags.concat(edge.node.frontmatter.tags);
-      }
-    });
-    // Eliminate duplicate tags
-    tags = _.uniq(tags);
-
-    // Make tag pages
-    tags.forEach((tag) => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`;
-
-      createPage({
-        path: tagPath,
-        component: path.resolve('src/templates/tags.js'),
-        context: {
-          tag,
-        },
-      });
     });
   });
 };
