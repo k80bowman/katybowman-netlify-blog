@@ -59,6 +59,8 @@ const HomePage = (props) => {
                     excerpt={post.frontmatter.excerpt}
                     category={post.frontmatter.category}
                     featured={post.frontmatter.featured}
+                    publication={post.frontmatter.publication}
+                    pubLink={post.frontmatter.pubLink}
                   />
                 );
               }

@@ -24,6 +24,11 @@ const TemplateWrapper = ({ children, location }) => (
           <title>{data.site.siteMetadata.title}</title>
           <meta name="description" content={data.site.siteMetadata.description} />
 
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://www.katybowman.com" />
+          <meta property="og:image" content="/img/og_image.png" />
+          <meta property="og:description" content="personal website for Katy Bowman, writer and developer" />
+
           <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png" />

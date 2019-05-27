@@ -21,6 +21,11 @@ const ArticleCard = (props) => {
   let link;
   let pubLinkText;
 
+  console.log(title);
+  console.log(pubLink);
+  console.log(publication);
+
+
   if (pubLink !== 'none' && pubLink && publication !== 'none') {
     link = pubLink;
     pubLinkText = publication;
