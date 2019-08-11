@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: 'What I''ve Been Reading - August 10, 2019'
-date: 2019-08-11T01:44:18.901Z
+date: 2019-08-10T01:44:18.901Z
 excerpt: >-
   It's been a rough week here in Dayton. Tomorrow it will be a week ago that we
   woke up to the news that in less than 30 seconds a man managed to kill nine
