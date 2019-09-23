@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Layout from '../../components/Layout';
-import PostList from '../../components/Post-List';
-import Pagination from '../../components/Pagination';
+import Layout from '../components/Layout';
+import PostList from '../components/Post-List';
+import Pagination from '../components/Pagination';
 
 const WritingPostsPage = (props) => {
   const { data, pageContext } = props;

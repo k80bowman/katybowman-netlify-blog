@@ -1,6 +1,6 @@
 .article-card {
   padding: 2rem 0;
-  box-shadow: 0px 1px 0px 0px rgba(219,0,0,1);
+  box-shadow: 0px 2px 0px 0px rgba(219,0,0,1);
 
   &__category {
     padding-bottom: 1rem;
@@ -46,7 +46,7 @@
   }
 
   &:hover {
-    box-shadow: 0px 3px 0px 0px rgba(219,0,0,1);
+    box-shadow: 0px 4px 0px 0px rgba(219,0,0,1);
     font-weight: normal;
 
     .article-card__title {
