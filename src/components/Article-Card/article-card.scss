@@ -57,7 +57,7 @@
 
 .featured-article {
   .article-card__title{
-    font-size: $modular-scale-2;
+    font-size: 2rem;
 
     @media #{$desktop-width} {
       font-size: 3rem;

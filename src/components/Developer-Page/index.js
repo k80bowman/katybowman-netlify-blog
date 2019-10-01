@@ -59,7 +59,7 @@ const DevPage = (props) => {
               }
         </div>
       </section>
-      <Link className="blog-link" to="tags/developer">more posts</Link>
+      <Link className="blog-link" to="blog/developer">more posts</Link>
     </div>
   );
 };

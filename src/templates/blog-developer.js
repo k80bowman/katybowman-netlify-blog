@@ -16,7 +16,7 @@ const DeveloperPostsPage = props => {
         <div className="blog-articles">
           <PostList blogPosts={developerPosts} />
         </div>
-        <Pagination pageContext={pageContext} pageSlug="tags/developer" />
+        <Pagination pageContext={pageContext} pageSlug="blog/developer" />
       </div>
     </Layout>
   );

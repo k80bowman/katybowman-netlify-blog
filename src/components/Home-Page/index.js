@@ -69,7 +69,7 @@ const HomePage = (props) => {
           })
             }
       </div>
-      <Link className="blog-link" to="/posts">more posts</Link>
+      <Link className="blog-link" to="/blog">more posts</Link>
     </section>
   );
 };

@@ -37,28 +37,47 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const devPosts = posts.filter((post) => post.node.frontmatter.tags
       && post.node.frontmatter.tags.includes('developer'));
   const postsPerPage = 10;
-  const numPages = (postList) => Math.ceil(postList.length / postsPerPage);
-  Array.from({ length: numPages(writingPosts) }).forEach((_, i) => {
+  const numPages = (postList) => (postList.length > postsPerPage
+    ? Math.ceil(postList.length / postsPerPage)
+    : 1);
+  const numPostsPages = numPages(posts);
+  const numWritingPages = numPages(writingPosts);
+  const numDevPages = numPages(devPosts);
+
+  Array.from({ length: numPostsPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? '/blog' : `/blog/${i + 1}`,
+      component: path.resolve('./src/templates/blog-all.js'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages: numPostsPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
+  Array.from({ length: numWritingPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? '/blog/writing' : `/blog/writing/${i + 1}`,
       component: path.resolve('./src/templates/blog-writing.js'),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
-        numPages,
+        numPages: numWritingPages,
         currentPage: i + 1,
       },
     });
   });
 
-  Array.from({ length: numPages(devPosts) }).forEach((_, i) => {
+  Array.from({ length: numDevPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? '/blog/developer' : `/blog/developer/${i + 1}`,
       component: path.resolve('./src/templates/blog-developer.js'),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
-        numPages,
+        numPages: numDevPages,
         currentPage: i + 1,
       },
     });
