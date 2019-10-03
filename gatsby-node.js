@@ -4,15 +4,15 @@ const { createFilePath } = require('gatsby-source-filesystem');
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  const result = await graphql(
-    `
-      {
-        allMarkdownRemark(
+  const result = await graphql(`
+      query {
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
           edges {
             node {
+              id
               fields {
                 slug
               }
@@ -23,15 +23,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-    `,
-  );
+    `);
 
   if (result.errors) {
     reporter.panicOnBuild('Error while running GraphQL query.');
     return;
   }
 
-  const posts = result.data.allMarkdownRemark.edges;
+  const posts = result.data.allMdx.edges;
   const writingPosts = posts.filter((post) => post.node.frontmatter.tags
       && post.node.frontmatter.tags.includes('writing'));
   const devPosts = posts.filter((post) => post.node.frontmatter.tags
@@ -82,28 +81,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     });
   });
+
+  posts.forEach(({ node }, index) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve('./src/templates/blog-post.js'),
+      context: { id: node.id },
+    });
+  });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: 'slug',
       node,
-      value,
-    });
-  }
-};
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode, basePath: 'pages' });
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
+      value: `/blog${value}`,
     });
   }
 };

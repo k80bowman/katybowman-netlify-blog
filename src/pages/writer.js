@@ -18,7 +18,7 @@ const WriterPage = (props) => {
 
 WriterPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
   }).isRequired,
@@ -28,7 +28,7 @@ export default WriterPage;
 
 export const pageQuery = graphql`
   query WriterQuery {
-    featuredPublication: allMarkdownRemark(
+    featuredPublication: allMdx(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { 
         templateKey: { eq: "blog-post" },
@@ -39,7 +39,7 @@ export const pageQuery = graphql`
       totalCount
       ...articleFields
   },
-  blogPosts: allMarkdownRemark(
+  blogPosts: allMdx(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { 
         templateKey: { eq: "blog-post" },

@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const experienceFields = graphql`
-fragment experienceFields on MarkdownRemarkConnection {
+fragment experienceFields on MdxConnection {
     edges {
         node {
           excerpt

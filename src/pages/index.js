@@ -6,7 +6,7 @@ import HomePage from '../components/Home-Page';
 
 const IndexPage = (props) => {
   const { data } = props;
-  const { edges: posts } = data.allMarkdownRemark;
+  const { edges: posts } = data.allMdx;
 
   return (
     <Layout location="home">
@@ -17,7 +17,7 @@ const IndexPage = (props) => {
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
   }).isRequired,
@@ -27,7 +27,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
     ) {

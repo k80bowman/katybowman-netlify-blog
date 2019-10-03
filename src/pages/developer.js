@@ -39,7 +39,7 @@ export default DeveloperPage;
 
 export const pageQuery = graphql`
   query TechnicalRolesQuery {
-    techRoles: allMarkdownRemark(
+    techRoles: allMdx(
       sort: { order: DESC, fields: [frontmatter___order] },
       filter: { frontmatter: { 
         templateKey: { eq: "experience" },
@@ -49,7 +49,7 @@ export const pageQuery = graphql`
       totalCount
       ...experienceFields
   },
-  communityRoles: allMarkdownRemark(
+  communityRoles: allMdx(
       sort: { order: DESC, fields: [frontmatter___order] },
       filter: { frontmatter: { 
         templateKey: { eq: "experience" },
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
       totalCount
       ...experienceFields
     },
-    techPosts: allMarkdownRemark(
+    techPosts: allMdx(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { 
         templateKey: { eq: "blog-post" },

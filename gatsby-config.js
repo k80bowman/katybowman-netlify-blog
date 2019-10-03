@@ -40,5 +40,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+    'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog-posts',
+        path: `${__dirname}/src/blog-posts/`,
+      },
+    },
   ],
 };

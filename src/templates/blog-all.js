@@ -24,7 +24,7 @@ const BlogPostsPage = (props) => {
 
 BlogPostsPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    Mdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
   }),
@@ -38,7 +38,7 @@ export default BlogPostsPage;
 
 export const pageQuery = graphql`
   query BlogPostsQuery($skip: Int, $limit: Int) {
-    blogPosts: allMarkdownRemark(
+    blogPosts: allMdx(
       sort: { order: DESC, fields: [frontmatter___date] },
       limit: $limit,
       skip: $skip,

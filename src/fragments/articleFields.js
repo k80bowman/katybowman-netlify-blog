@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const articleFields = graphql`
-  fragment articleFields on MarkdownRemarkConnection {
+  fragment articleFields on MdxConnection {
     edges {
       node {
         excerpt(pruneLength: 400)
