@@ -1,9 +1,16 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import {MDXProvider} from '@mdx-js/react'
 
 import Header from './Header/index';
+import CodeBlock from './Blog-Post/code-block';
 import '../main.scss';
+
+const components = {
+  pre: props => <div {...props} />,
+  code: CodeBlock
+}
 
 const TemplateWrapper = ({ children, location }) => (
   <StaticQuery
@@ -47,10 +54,12 @@ const TemplateWrapper = ({ children, location }) => (
 
           <link href="https://fonts.googleapis.com/css?family=Oswald|Merriweather" rel="stylesheet" />
         </Helmet>
-        <div className="main">
-          <Header location={location} />
-          <div className="page-content">{children}</div>
-        </div>
+        <MDXProvider components={components}>
+          <div className="main">
+            <Header location={location} />
+            <div className="page-content">{children}</div>
+          </div>
+        </MDXProvider>
       </div>
     )}
   />

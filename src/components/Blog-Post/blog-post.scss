@@ -1,0 +1,111 @@
+.post {
+  p {
+    margin: 1rem 0;
+    line-height: 1.5em;
+  }
+
+  img {
+    width: 100%;
+    margin: 2rem auto;
+  }
+
+  .post__date {
+    font-style: italic;
+    font-size: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  
+
+  blockquote {
+    border-bottom: 1px solid $k80-red;
+    border-top: 1px solid $k80-red;
+    font-style: italic;
+  }
+
+  /**
+   * Add back the container background-color, border-radius, padding, margin
+   * and overflow that we removed from <pre>.
+   */
+  pre {
+    background-color: #000;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    overflow: auto;
+    font-size: 1.3rem;
+  }
+
+  /**
+   * Remove the default PrismJS theme background-color, border-radius, margin,
+   * padding and overflow.
+   * 1. Make the element just wide enough to fit its content.
+   * 2. Always fill the visible space in .gatsby-highlight.
+   * 3. Adjust the position of the line numbers
+   */
+  code[class*="language-"] {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    overflow: initial;
+    float: left; /* 1 */
+    min-width: 100%; /* 2 */
+  }
+  
+//   code[class*="language-"] {
+//     color: white;
+//   }
+
+//   .token.comment,
+//   .token.prolog,
+//   .token.doctype,
+//   .token.cdata {
+//     color: #fff;
+//   }
+
+//   .token.punctuation {
+//     color: #fff;
+//   }
+
+//   .token.property,
+//   .token.tag,
+//   .token.boolean,
+//   .token.number,
+//   .token.constant,
+//   .token.symbol,
+//   .token.deleted {
+//     color: #ff4e50;
+//   }
+
+//   .token.selector,
+//   .token.attr-name,
+//   .token.string,
+//   .token.char,
+//   .token.builtin,
+//   .token.url,
+//   .token.inserted {
+//     color: #3bc7b8;
+//   }
+
+//   .token.entity {
+//     color: #fff;
+//   }
+
+//   .token.atrule,
+//   .token.attr-value,
+//   .token.keyword {
+//     color: #3bc7b8;
+//   }
+
+//   .token.function,
+//   .token.class-name {
+//     color: #c3cb4c;
+//   }
+
+//   .token.regex,
+//   .token.important,
+//   .token.variable {
+//     color: #ff4e50;
+//   }
+
+}

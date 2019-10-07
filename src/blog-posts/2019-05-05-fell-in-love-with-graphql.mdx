@@ -27,11 +27,11 @@ For example, this is what my code looked like for my technical roles section:
 ```jsx
 <div className="experience__cards experience__cards--technical">
   {techRoles
-    .map(({ node: position }) =>{
+    .map(({ node: position }) => {
       return (
         <ExperienceCard position={position.frontmatter} />
       );
-    }
+    };
     return null;
   })}
 </div>
