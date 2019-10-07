@@ -38,6 +38,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       && post.node.frontmatter.tags.includes('writing'));
   const devPosts = posts.filter((post) => post.node.frontmatter.tags
       && post.node.frontmatter.tags.includes('developer'));
+  const publications = posts.filter((post) => post.node.frontmatter.tags
+      && post.node.frontmatter.tags.includes('publication'));
   const postsPerPage = 10;
   const numPages = (postList) => (postList.length > postsPerPage
     ? Math.ceil(postList.length / postsPerPage)
@@ -45,6 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const numBlogPostsPages = numPages(blogPosts);
   const numWritingPages = numPages(writingPosts);
   const numDevPages = numPages(devPosts);
+  const numPublicationPages = numPages(publications);
 
   Array.from({ length: numBlogPostsPages }).forEach((_, i) => {
     createPage({
@@ -80,6 +83,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages: numDevPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
+  Array.from({ length: numPublicationPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? '/publications' : `/publications/${i + 1}`,
+      component: path.resolve('./src/templates/publication-list.js'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages: numPublicationPages,
         currentPage: i + 1,
       },
     });

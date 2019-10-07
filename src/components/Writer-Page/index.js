@@ -27,6 +27,7 @@ const WriterPage = (props) => {
           ))
           }
       </section>
+      <Link className="blog-link" to="publications">more publications</Link>
       <section className="blog-articles">
         <h2 className="section__title section__title--secondary">Blog Posts</h2>
         {blogPosts
