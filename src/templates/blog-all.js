@@ -8,6 +8,7 @@ import Pagination from '../components/Pagination';
 const BlogPostsPage = (props) => {
   const { data, pageContext } = props;
   const { edges: blogPosts } = data.blogPosts;
+  console.log(pageContext.numPages);
 
   return (
     <Layout location="blog-posts">

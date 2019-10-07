@@ -18,6 +18,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               }
               frontmatter {
                 tags
+                templateKey
               }
             }
           }
@@ -31,6 +32,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMdx.edges;
+  const blogPosts = posts.filter((post) => post.node.frontmatter.templateKey
+    && post.node.frontmatter.templateKey.includes('blog-post'));
   const writingPosts = posts.filter((post) => post.node.frontmatter.tags
       && post.node.frontmatter.tags.includes('writing'));
   const devPosts = posts.filter((post) => post.node.frontmatter.tags
@@ -39,18 +42,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const numPages = (postList) => (postList.length > postsPerPage
     ? Math.ceil(postList.length / postsPerPage)
     : 1);
-  const numPostsPages = numPages(posts);
+  const numBlogPostsPages = numPages(blogPosts);
   const numWritingPages = numPages(writingPosts);
   const numDevPages = numPages(devPosts);
 
-  Array.from({ length: numPostsPages }).forEach((_, i) => {
+  Array.from({ length: numBlogPostsPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? '/blog' : `/blog/${i + 1}`,
       component: path.resolve('./src/templates/blog-all.js'),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
-        numPages: numPostsPages,
+        numPages: numBlogPostsPages,
         currentPage: i + 1,
       },
     });
