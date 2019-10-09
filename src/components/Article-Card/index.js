@@ -35,7 +35,7 @@ const ArticleCard = (props) => {
       <div className="article-card card">
         <p className="article-card__category">{category}</p>
         <h3 className="article-card__title card__title">{title}</h3>
-        {hasImage && featured ? (
+        {hasImage ? (
           <div className="article-card__excerpt-with-img">
             <img className="article-card__image" src={withPrefix(imageLink)} alt={title} />
             <p className="article-card__excerpt">{excerpt}</p>
