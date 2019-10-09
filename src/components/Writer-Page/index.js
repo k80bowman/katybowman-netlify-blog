@@ -29,7 +29,7 @@ const WriterPage = (props) => {
       </section>
       <Link className="blog-link" to="publications">more publications</Link>
       <section className="blog-articles">
-        <h2 className="section__title section__title--secondary">Blog Posts</h2>
+        <h2 className="section__title section__title--secondary">Writing Articles</h2>
         {blogPosts
           .map(({ node: post }) => (
             <ArticleCard
@@ -45,7 +45,7 @@ const WriterPage = (props) => {
           ))
           }
       </section>
-      <Link className="blog-link" to="blog/writing">more posts</Link>
+      <Link className="blog-link" to="blog/writing">more writing articles</Link>
     </div>
   );
 };

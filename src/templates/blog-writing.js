@@ -12,7 +12,7 @@ const WritingPostsPage = (props) => {
   return (
     <Layout location="writer">
       <div className="main-content">
-        <h2 className="section__title">Writing Posts</h2>
+        <h2 className="section__title">Writing Articles</h2>
         <div className="blog-articles">
           <PostList blogPosts={writingPosts} />
         </div>
