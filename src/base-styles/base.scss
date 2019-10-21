@@ -44,12 +44,10 @@ a {
   }
 
   &:hover {
-    font-weight: bold;
     border-bottom: $k80-red solid 2px;
   }
 
   &:active {
-    font-weight: bold;
     border-bottom: $k80-red solid 2px;
   }
 }
