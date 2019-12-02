@@ -27,11 +27,14 @@ PublicationsListPage.propTypes = {
     Mdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
-  }),
+    blogPosts: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }).isRequired,
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number,
     numPages: PropTypes.number,
-  }),
+  }).isRequired,
 };
 
 export default PublicationsListPage;

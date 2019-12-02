@@ -30,8 +30,8 @@ Pagination.propTypes = {
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number,
     numPages: PropTypes.number,
-  }),
-  pageSlug: PropTypes.string,
+  }).isRequired,
+  pageSlug: PropTypes.string.isRequired,
 };
 
 export default Pagination;

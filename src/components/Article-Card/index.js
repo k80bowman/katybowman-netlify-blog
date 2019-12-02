@@ -1,6 +1,6 @@
 import React from 'react';
 import { withPrefix } from 'gatsby';
-import { propTypes, defaultProps } from './types';
+import propTypes from './types';
 
 const ArticleCard = (props) => {
   const {
@@ -11,12 +11,10 @@ const ArticleCard = (props) => {
     slug,
     publication,
     pubLink,
-    tags,
     imageLink,
   } = props;
 
   const hasImage = imageLink && imageLink !== 'none';
-  const featured = tags && tags.includes('featured');
 
   let link;
   let pubLinkText;
@@ -37,13 +35,14 @@ const ArticleCard = (props) => {
         <h3 className="article-card__title card__title">{title}</h3>
         {hasImage ? (
           <div className="article-card__excerpt-with-img">
-            <img className="article-card__image" src={withPrefix(imageLink)} alt={title} />
+            <div className="article-card__image-wrapper">
+              <img className="article-card__image" src={withPrefix(imageLink)} alt={title} />
+            </div>
             <p className="article-card__excerpt">{excerpt}</p>
           </div>
         ) : (
           <p className="article-card__excerpt">{excerpt}</p>
-        )
-        }
+        )}
         <p className="article-card__pubLink">{pubLinkText}</p>
       </div>
     </a>
@@ -51,6 +50,5 @@ const ArticleCard = (props) => {
 };
 
 ArticleCard.propTypes = propTypes;
-ArticleCard.defaultProps = defaultProps;
 
 export default ArticleCard;

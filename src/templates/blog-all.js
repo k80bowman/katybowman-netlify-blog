@@ -8,7 +8,6 @@ import Pagination from '../components/Pagination';
 const BlogPostsPage = (props) => {
   const { data, pageContext } = props;
   const { edges: blogPosts } = data.blogPosts;
-  console.log(pageContext.numPages);
 
   return (
     <Layout location="blog-posts">
@@ -28,11 +27,14 @@ BlogPostsPage.propTypes = {
     Mdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
-  }),
+    blogPosts: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }).isRequired,
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number,
     numPages: PropTypes.number,
-  }),
+  }).isRequired,
 };
 
 export default BlogPostsPage;

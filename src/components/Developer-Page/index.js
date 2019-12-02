@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 import propTypes from './types';
 import ArticleCard from '../Article-Card';
 import ExperienceCard from '../Experience-Card';
-import CodepenSVG from './icons/codepenSVG.js';
-import GithubSVG from './icons/githubSVG.js';
-import LinkedinSVG from './icons/linkedinSVG.js';
+import CodepenSVG from './icons/codepenSVG';
+import GithubSVG from './icons/githubSVG';
+import LinkedinSVG from './icons/linkedinSVG';
 
 const DevPage = (props) => {
   const { techPosts, techRoles, communityRoles } = props;
@@ -55,8 +55,7 @@ const DevPage = (props) => {
                 publication={post.frontmatter.publication}
                 pubLink={post.frontmatter.pubLink}
               />
-            ))
-              }
+            ))}
         </div>
       </section>
       <Link className="blog-link" to="blog/developer">more technical articles</Link>

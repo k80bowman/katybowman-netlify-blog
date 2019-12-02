@@ -7,7 +7,7 @@ const HomePage = (props) => {
   let featuredIndex = 0;
   let blogIndex = 0;
   const featuredPostIndices = [];
-  const isFeatured = index => featuredPostIndices.includes(index);
+  const isFeatured = (index) => featuredPostIndices.includes(index);
 
   const { posts } = props;
 
@@ -40,8 +40,7 @@ const HomePage = (props) => {
               }
             }
             return null;
-          })
-            }
+          })}
       </div>
       <div className="blog-articles">
         <h2 className="section__title section__title--secondary">Blog Posts</h2>
@@ -67,8 +66,7 @@ const HomePage = (props) => {
               }
             }
             return null;
-          })
-            }
+          })}
       </div>
       <Link className="blog-link" to="/blog">more posts</Link>
     </section>

@@ -1,16 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import {MDXProvider} from '@mdx-js/react'
+import { MDXProvider } from '@mdx-js/react';
 
 import Header from './Header/index';
 import CodeBlock from './Blog-Post/code-block';
 import '../main.scss';
 
 const components = {
-  pre: props => <div {...props} />,
-  code: CodeBlock
-}
+  pre: (props) => <div {...props} />,
+  code: CodeBlock,
+};
 
 const TemplateWrapper = ({ children, location }) => (
   <StaticQuery
@@ -24,7 +25,7 @@ const TemplateWrapper = ({ children, location }) => (
           }
         }
     `}
-    render={data => (
+    render={(data) => (
       <div>
         <Helmet>
           <html lang="en" />
@@ -64,5 +65,10 @@ const TemplateWrapper = ({ children, location }) => (
     )}
   />
 );
+
+TemplateWrapper.propTypes = {
+  children: PropTypes.shape.isRequired,
+  location: PropTypes.string.isRequired,
+};
 
 export default TemplateWrapper;

@@ -18,13 +18,11 @@ const ExperienceCard = (props) => {
       <h4 className="experience-card__title card__title">{title}</h4>
       { org !== 'none'
         ? <a className="experience-card__org" href={orgLink}>{org}</a>
-        : false
-      }
+        : false}
       <p className="experience-card__dates">{dates}</p>
       <div className="experience-card__skill-list">
         {skills.forEach((skill, index) => {
-          console.log(skill, index);
-          // if (index === 0) { return (<span>{skill}</span>); }
+          if (index === 0) { return (<span>{skill}</span>); }
 
           return (
             <div>
@@ -34,6 +32,7 @@ const ExperienceCard = (props) => {
           );
         })}
       </div>
+      { /* TODO: why am I using dangerouslySetInnerHTML here? */ }
       <div className="experience-card__summary" dangerouslySetInnerHTML={{ __html: summary }} />
     </div>
   );

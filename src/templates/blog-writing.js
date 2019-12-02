@@ -27,11 +27,14 @@ WritingPostsPage.propTypes = {
     allMdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
+    writingPosts: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
   }).isRequired,
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number,
     numPages: PropTypes.number,
-  }),
+  }).isRequired,
 };
 
 export default WritingPostsPage;

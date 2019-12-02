@@ -9,6 +9,14 @@
     margin: 2rem auto;
   }
 
+  .post__title {
+    font-size: 3rem;
+
+    @media #{$desktop-width} {
+      font-size: $modular-scale-3;
+    }
+  }
+
   .post__date {
     font-style: italic;
     font-size: 1.25rem;

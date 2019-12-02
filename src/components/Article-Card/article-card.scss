@@ -22,12 +22,21 @@
     }
   }
 
+  &__image-wrapper {
+    height: 100px;
+    overflow: hidden;
+  }
+
   &__image {
     width: 100%;
-    height: 100%;
-    max-width: 100px;
-    float: left;
-    margin: 5px 10px 5px 0;
+    // max-width: 100px;
+    margin-top: -75px;
+
+    @media #{$tablet-portrait} {
+      height: 100%;
+      float: left;
+      margin: 5px 10px 5px 0;
+    }
   }
 
   &__pubLink {
@@ -36,9 +45,12 @@
   }
 
   &__excerpt-with-img {
-    display: flex;
-    align-items: center;
     padding-bottom: 1rem;
+
+    @media #{$tablet-portrait} {
+      display: flex;
+      align-items: center;
+    }
 
     .article-card__excerpt {
       padding: 1rem 0;

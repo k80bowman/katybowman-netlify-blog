@@ -24,8 +24,7 @@ const WriterPage = (props) => {
               pubLink={post.frontmatter.pubLink}
               tags={post.frontmatter.tags}
             />
-          ))
-          }
+          ))}
       </section>
       <Link className="blog-link" to="publications">more publications</Link>
       <section className="blog-articles">
@@ -42,8 +41,7 @@ const WriterPage = (props) => {
               publication={post.frontmatter.publication}
               pubLink={post.frontmatter.pubLink}
             />
-          ))
-          }
+          ))}
       </section>
       <Link className="blog-link" to="blog/writing">more writing articles</Link>
     </div>

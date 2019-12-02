@@ -1,7 +1,14 @@
 {
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off"
+  },
   "extends": [
-    "airbnb",
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "airbnb",
   ]
 }

@@ -21,6 +21,12 @@ WriterPage.propTypes = {
     allMdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
+    featuredPublication: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+    blogPosts: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
   }).isRequired,
 };
 

@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import PostList from '../components/Post-List';
 import Pagination from '../components/Pagination';
 
-const DeveloperPostsPage = props => {
+const DeveloperPostsPage = (props) => {
   const { data, pageContext } = props;
   const { edges: developerPosts } = data.developerPosts;
 
@@ -27,11 +27,14 @@ DeveloperPostsPage.propTypes = {
     allMdx: PropTypes.shape({
       edges: PropTypes.array,
     }),
+    developerPosts: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
   }).isRequired,
   pageContext: PropTypes.shape({
     currentPage: PropTypes.number,
     numPages: PropTypes.number,
-  }),
+  }).isRequired,
 };
 
 export default DeveloperPostsPage;
