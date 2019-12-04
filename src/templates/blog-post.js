@@ -20,7 +20,10 @@ PostTemplate.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.shape({
       edges: PropTypes.array,
-      frontmatter: PropTypes.shape,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+        date: PropTypes.string,
+      }),
       body: PropTypes.string,
     }),
   }).isRequired,

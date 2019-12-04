@@ -67,7 +67,13 @@ const TemplateWrapper = ({ children, location }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.shape.isRequired,
+  children: PropTypes.shape({
+    props: PropTypes.shape({
+      communityRoles: PropTypes.array,
+      techPosts: PropTypes.array,
+      techRoles: PropTypes.array,
+    }),
+  }).isRequired,
   location: PropTypes.string.isRequired,
 };
 

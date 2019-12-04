@@ -13,12 +13,12 @@ const Pagination = (props) => {
   return (
     <div className="pagination">
       {!isFirst && (
-      <Link className="pagination-link previous" to={`${pageSlug}/${prevPage}`} rel="prev">
+      <Link className="pagination-link previous" to={`/${pageSlug}/${prevPage}`} rel="prev">
         Previous Page
       </Link>
       )}
       {!isLast && (
-      <Link className="pagination-link next" to={`${pageSlug}/${nextPage}`} rel="next">
+      <Link className="pagination-link next" to={`/${pageSlug}/${nextPage}`} rel="next">
         Next Page
       </Link>
       )}

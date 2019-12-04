@@ -11,7 +11,7 @@ export const propTypes = {
   imageLink: PropTypes.string,
 };
 
-export const defaultProps = {
+export const defaultPropTypes = {
   excerpt: 'none',
   publication: 'none',
   pubLink: 'none',

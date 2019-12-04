@@ -18,14 +18,14 @@ const DevPage = (props) => {
         <div className="experience__cards experience__cards--technical">
           {techRoles
             .map(({ node: position }) => (
-              <ExperienceCard position={position.frontmatter} />
+              <ExperienceCard position={position.frontmatter} key={position.id} />
             ))}
         </div>
         <h3 className="section__subtitle">Community Building</h3>
         <div className="experience__cards experience__cards--community">
           {communityRoles
             .map(({ node: position }) => (
-              <ExperienceCard position={position.frontmatter} />
+              <ExperienceCard position={position.frontmatter} key={position.id} />
             ))}
         </div>
       </section>
@@ -58,7 +58,7 @@ const DevPage = (props) => {
             ))}
         </div>
       </section>
-      <Link className="blog-link" to="blog/developer">more technical articles</Link>
+      <Link className="blog-link" to="/blog/developer">more technical articles</Link>
     </div>
   );
 };

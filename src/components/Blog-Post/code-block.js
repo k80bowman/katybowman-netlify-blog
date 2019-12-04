@@ -1,7 +1,7 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from './code-block-styles';
-import propTypes from './types';
+import { propTypes, defaultPropTypes } from './types';
 
 const CodeBlock = ({ children, className }) => {
   const language = className.replace(/language-/, '');
@@ -29,5 +29,6 @@ const CodeBlock = ({ children, className }) => {
 };
 
 CodeBlock.propTypes = propTypes;
+CodeBlock.defaultPropTypes = defaultPropTypes;
 
 export default CodeBlock;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { propTypes } from './types';
+import propTypes from './types';
 
 const ExperienceCard = (props) => {
   const { position } = props;
@@ -32,8 +32,8 @@ const ExperienceCard = (props) => {
           );
         })}
       </div>
-      { /* TODO: why am I using dangerouslySetInnerHTML here? */ }
-      <div className="experience-card__summary" dangerouslySetInnerHTML={{ __html: summary }} />
+      {/* eslint-disable-next-line react/no-danger */}
+      <p className="experience-card__summary" dangerouslySetInnerHTML={{ __html: summary }} />
     </div>
   );
 };
