@@ -24,46 +24,17 @@ I got all of this coded up and I was feeling OK about it. I was getting my data,
 
 For example, this is what my code looked like for my technical roles section:
 
-```jsx
-<div className="experience__cards experience__cards--technical">
-  {techRoles
-    .map(({ node: position }) => {
-      return (
-        <ExperienceCard position={position.frontmatter} />
-      );
-    };
-    return null;
-  })}
-</div>
-```
+<Gist id='e3624621e88d5c107fe05022eb67f5e3' file='bp-2019-05-05--gist-1.jsx' />
 
 It's not too bad, just an if statement. But, as I was doing some reading last night, I realized that I could do this better. And I could do this better because all of that logic didn't need to live in my JavaScript. It could live in my query, which means I could get rid of that if statement altogether.
 
 So now, my query looks like this:
 
-```graphql
-query TechnicalRolesQuery {
-  techRoles: allMarkdownRemark(
-    sort: { order: DESC, fields: [frontmatter__order] },
-    filter: { frontmatter: {
-      templateKey: { eq: "experience" },
-      type: { eq: "tech" }
-    }}
-    ...
-  )
-}
-```
+<Gist id='e3624621e88d5c107fe05022eb67f5e3' file='bp-2019-05-05--gist-2.js' />
 
 And my JavaScript looks like this:
 
-```jsx
-<div className="experience__cards experience__cards--technical">
-  {techRoles
-    .map(({ node: position }) => (
-      <ExperienceCard position={position.frontmatter} />
-    ))}
-</div>
-```
+<Gist id='e3624621e88d5c107fe05022eb67f5e3' file='bp-2019-05-05--gist-3.jsx' />
 
 This may not seem all that dramatic, but it means that the logic for determining which data gets displayed _lives with the data request_ rather than having to have a bunch of JavaScript to navigate the data and force it into a shape that works for what you want to display. This feels so much more logical and neater than the alternative, and this is what blew my mind a bit last night. Intellectually, I knew that this was what GraphQL was designed for, but it wasn't until I actually used it this way that the truth of it all hit me. And now I can't wait to dig in and learn more.
 

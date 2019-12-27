@@ -3,14 +3,14 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
+import Gist from 'react-gist';
 
 import Header from './Header/index';
-import CodeBlock from './Blog-Post/code-block';
 import '../main.scss';
 
 const components = {
   pre: (props) => <div {...props} />,
-  code: CodeBlock,
+  Gist,
 };
 
 const TemplateWrapper = ({ children, location }) => (
