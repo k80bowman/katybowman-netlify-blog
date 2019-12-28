@@ -1,0 +1,31 @@
+---
+templateKey: blog-post
+title: "Adding Github Gists"
+date: 2019-12-27
+category: Blog Post
+publication: none
+pubLink: none
+imageLink: none
+tags: ["developer"]
+excerpt: "When I started, I didn't really know much of anything about GraphQL. And, to be honest, the only thing I really knew about Gatsby was that I could use it to build a static site with React. Plus it works well with the Netlify CMS, which is something I also really want to use. Since then, I've learned a lot. But last night, my knowledge of GraphQL took a leap forward and now I really love it."
+---
+
+I was reading an article a while back with tips on starting a tech blog and keeping it going and one of the suggestions listed was to use Github Gists for your code samples. The main argument was that they were easy to use and accessible. I was already using [PrismJS](https://prismjs.com/) as a syntax highlighter, but I thought I would give Gists a try, just to see how they worked.
+
+Of course, nothing is ever so simple.
+
+For my blog, I currently use [MDX](https://mdxjs.com/) for my blog posts. It was another thing I decided to try out at one point. I'd read about the MDX format when setting up this site with Gatsby and the idea of being able to use components inside my markdown sounded pretty cool. And, in fact, it came in very handy in getting the Gists to load in my post, but it took a bit to get things working.
+
+The first thing I tried, after creating my gist, was just using the embed script that Github provides. I couldn't get the script to actually embed the gist on my page, though, it only showed up as text in my post.
+
+The second thing I tried was the [gatsby-remark-embed-gist](https://www.gatsbyjs.org/packages/gatsby-remark-embed-gist/) Gatsby plugin, but I couldn't get that to work either. Again, it only showed the embed code as text on my page.
+
+Then it occurred to me that I am using MDX and that I could possibly use a component. I found the [react-gist](https://www.npmjs.com/package/react-gist) NPM module and it looked simple enough. I installed it and tried to import it directly into my MDX file, below the frontmatter, but I kept getting the error message that `Gist could not be found`.
+
+And that's when I found [shortcodes](https://mdxjs.com/blog/shortcodes), which are pretty cool. I was able to import `react-gist` into my `layout.js` file and then pass it through to my entire app as a shortcode. Then, in any of my posts where I want to add a gist, I just go ahead and use the `<Gist>` component and it works!
+
+You can see the result here: [https://www.katybowman.com/blog/2019-05-05-fell-in-love-with-graphql/](https://www.katybowman.com/blog/2019-05-05-fell-in-love-with-graphql/)
+
+And here you can see the [commit that adds the code to make this possible](https://github.com/k80bowman/katybowman-netlify-blog/commit/19f9f66dc8c7f7907aca4129137c8edf0045dbe9)
+
+The next thing I'd like to do is look into the accessibility of this solution. They don't seem to be more accessible than my old PrismJS versions, but there could be things that I'm not looking at.
