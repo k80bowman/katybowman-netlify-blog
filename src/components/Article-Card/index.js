@@ -1,5 +1,6 @@
 import React from 'react';
 import { withPrefix } from 'gatsby';
+import classNames from 'classnames';
 import propTypes from './types';
 
 const ArticleCard = (props) => {
@@ -15,6 +16,9 @@ const ArticleCard = (props) => {
   } = props;
 
   const hasImage = imageLink && imageLink !== 'none';
+  const imgClasses = classNames('article-card__excerpt-with-img', {
+    'article-card--book-review': category === 'Book Review',
+  });
 
   let link;
   let pubLinkText;
@@ -34,7 +38,7 @@ const ArticleCard = (props) => {
         <p className="article-card__category">{category}</p>
         <h3 className="article-card__title card__title">{title}</h3>
         {hasImage ? (
-          <div className="article-card__excerpt-with-img">
+          <div className={imgClasses}>
             <div className="article-card__image-wrapper">
               <img className="article-card__image" src={withPrefix(imageLink)} alt={title} />
             </div>

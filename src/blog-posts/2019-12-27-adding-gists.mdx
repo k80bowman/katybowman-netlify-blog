@@ -16,13 +16,15 @@ Of course, nothing is ever that simple.
 
 For my blog, I currently use [MDX](https://mdxjs.com/) for my blog posts. It was another thing I decided to try out at one point. I'd read about the MDX format when setting up this site with Gatsby and the idea of being able to use components inside my markdown sounded pretty cool. And, in fact, it came in very handy in getting the Gists to load in my post, but it took a bit to get things working.
 
-The first thing I tried, after creating my gist, was just using the embed script that Github provides. I couldn't get the script to actually embed the gist on my page, though, it only showed up as text in my post.
+The first thing I tried, after creating my gist, was just using the embed script that Github provides. I couldn't get the script to actually embed the gist on my page, though. The script appeared in my HTML, but nothing loaded on the page.
 
 The second thing I tried was the [gatsby-remark-embed-gist](https://www.gatsbyjs.org/packages/gatsby-remark-embed-gist/) Gatsby plugin, but I couldn't get that to work either. Again, it only showed the embed code as text on my page.
 
-Then it occurred to me that I am using MDX and that I could possibly use a component. I found the [react-gist](https://www.npmjs.com/package/react-gist) NPM module and it looked simple enough. I installed it and tried to import it directly into my MDX file, below the frontmatter, but I kept getting the error message that `Gist could not be found`.
+![screenshot of the embed code text on my blog page](/img/gatsby-remark-embed-gist-screenshot.png "screenshot from my of the embed code text on my blog page")
 
-And that's when I found [shortcodes](https://mdxjs.com/blog/shortcodes), which are pretty cool. I was able to import `react-gist` into my `layout.js` file and then pass it through to my entire app as a shortcode. Then, in any of my posts where I want to add a gist, I just go ahead and use the `<Gist>` component and it works!
+Then it occurred to me that I am using MDX and that I could possibly use a component. I found the [react-gist](https://www.npmjs.com/package/react-gist) NPM module and it looked simple enough. I installed it and tried to import it directly into my MDX file, below the frontmatter, but I kept getting the error message that "Gist could not be found".
+
+And that's when I found [shortcodes](https://mdxjs.com/blog/shortcodes), which are pretty cool. I was able to import react-gist into my layout.js file and then pass it through to my entire app as a shortcode. Then, in any of my posts where I want to add a gist, I just go ahead and use the `<Gist>` component and it works!
 
 You can see the result here: [https://www.katybowman.com/blog/2019-05-05-fell-in-love-with-graphql/](https://www.katybowman.com/blog/2019-05-05-fell-in-love-with-graphql/)
 
