@@ -4,17 +4,26 @@ import PropTypes from 'prop-types';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout';
 
-const PostTemplate = ({ data: { mdx } }) => (
-  <Layout location="developer">
-    <div className="main-content">
-      <div className="post">
-        <h1 className="post__title">{mdx.frontmatter.title}</h1>
-        <p className="post__date">{mdx.frontmatter.date}</p>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
+const getLocation = (tags) => {
+  if (tags.includes('developer')) return 'developer';
+  if (tags.includes('writing')) return 'writer';
+  return 'home';
+};
+
+const PostTemplate = ({ data: { mdx } }) => {
+  const location = getLocation(mdx.frontmatter.tags);
+  return (
+    <Layout location={location}>
+      <div className="main-content">
+        <div className="post">
+          <h1 className="post__title">{mdx.frontmatter.title}</h1>
+          <p className="post__date">{mdx.frontmatter.date}</p>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </div>
       </div>
-    </div>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 PostTemplate.propTypes = {
   data: PropTypes.shape({
@@ -23,6 +32,7 @@ PostTemplate.propTypes = {
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
         date: PropTypes.string,
+        tags: PropTypes.array,
       }),
       body: PropTypes.string,
     }),
@@ -39,6 +49,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
       }
     }
   }

@@ -24,6 +24,19 @@
     margin: 2rem 0;
   }
 
+  img[alt$="cover image"] {
+    width: 50%;
+    margin: 0.5rem 3rem;
+
+    @media #{$tablet-landscape} {
+      width: 30%;
+    }
+
+    @media #{$desktop-width} {
+      width: 20%;
+    }
+  }
+
   
 
   blockquote {
