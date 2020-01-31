@@ -5,8 +5,8 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout';
 
 const getLocation = (tags) => {
-  if (tags.includes('developer')) return 'developer';
-  if (tags.includes('writing')) return 'writer';
+  if (tags && tags.includes('developer')) return 'developer';
+  if (tags && tags.includes('writing')) return 'writer';
   return 'home';
 };
 
