@@ -5,12 +5,14 @@ import { StaticQuery, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import Gist from 'react-gist';
 
-import Header from './Header/index';
+import Header from './Header';
+import PostBookImage from './Post-Book-Image';
 import '../main.scss';
 
 const components = {
   pre: (props) => <div {...props} />,
   Gist,
+  PostBookImage,
 };
 
 const TemplateWrapper = ({ children, location }) => (

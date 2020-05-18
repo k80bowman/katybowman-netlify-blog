@@ -1,0 +1,9 @@
+.blog-post__image-wrapper {
+  width: 10rem;
+  margin: 0 auto;
+
+  @media #{$tablet-landscape} {
+    float: left;
+    margin-right: 2rem;
+  }
+}

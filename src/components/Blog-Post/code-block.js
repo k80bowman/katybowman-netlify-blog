@@ -3,7 +3,7 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from './code-block-styles';
 import { propTypes, defaultPropTypes } from './types';
 
-const CodeBlock = ({ children, className }) => {
+const CodeBlock3 = ({ children, className }) => {
   const language = className.replace(/language-/, '');
 
   /* eslint-disable react/no-array-index-key */
@@ -28,7 +28,7 @@ const CodeBlock = ({ children, className }) => {
   /* eslint-enable react/no-array-index-key */
 };
 
-CodeBlock.propTypes = propTypes;
-CodeBlock.defaultPropTypes = defaultPropTypes;
+CodeBlock3.propTypes = propTypes;
+CodeBlock3.defaultPropTypes = defaultPropTypes;
 
-export default CodeBlock;
+export default CodeBlock3;
