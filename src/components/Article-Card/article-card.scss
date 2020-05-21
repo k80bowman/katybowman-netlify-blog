@@ -22,16 +22,6 @@
     }
   }
 
-  &__image-wrapper {
-    height: 100px;
-    overflow: hidden;
-  }
-
-  &__image {
-    width: 100%;
-    margin-top: -50%;
-  }
-
   &__pubLink {
     margin-left: 1rem;
     color: $k80-red;
@@ -48,18 +38,31 @@
   &--book-review {
     display: flex;
     align-items: center;
+    flex-direction: column;
 
-    .article-card__image-wrapper {
-      height: 100%;
+    @media #{$tablet-portrait} {
+      flex-direction: row;
+      margin: 5px 10px 5px 0;
     }
 
     .article-card__image {
-      margin-top: 0;
+      width: 10rem;
 
       @media #{$tablet-portrait} {
-        float: left;
         margin: 5px 10px 5px 0;
       }
+    }
+  }
+
+  &--top-image {
+    .article-card__image-wrapper {
+      height: 100px;
+      overflow: hidden;
+    }
+  
+    .article-card__image {
+      width: 100%;
+      margin-top: -50%;
     }
   }
 

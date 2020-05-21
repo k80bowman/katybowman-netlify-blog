@@ -18,6 +18,7 @@ const ArticleCard = (props) => {
   const hasImage = imageLink && imageLink !== 'none';
   const imgClasses = classNames('article-card__excerpt-with-img', {
     'article-card--book-review': category === 'Book Review' || category === 'Reading',
+    'article-card--top-image': category !== 'Book Review' && category !== 'Reading',
   });
 
   let link;
