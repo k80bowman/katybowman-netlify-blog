@@ -54,6 +54,35 @@ const createSitePage = ({
   });
 };
 
+const getPostsArray = (posts) => ([
+  {
+    posts: posts.filter((post) => post.node.frontmatter.templateKey
+      && post.node.frontmatter.templateKey.includes('blog-post')),
+    pageName: 'blog',
+    templateName: 'blog-all',
+  },
+  {
+    posts: getTaggedPosts(posts, 'writing'),
+    pageName: 'blog/writing',
+    templateName: 'blog-writing',
+  },
+  {
+    posts: getTaggedPosts(posts, 'developer'),
+    pageName: 'blog/developer',
+    templateName: 'blog-developer',
+  },
+  {
+    posts: getTaggedPosts(posts, 'publication'),
+    pageName: 'publications',
+    templateName: 'publication-list',
+  },
+  {
+    posts: getTaggedPosts(posts, 'reading'),
+    pageName: 'reading',
+    templateName: 'blog-reading',
+  },
+]);
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
@@ -65,46 +94,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMdx.edges;
-  const blogPosts = posts.filter((post) => post.node.frontmatter.templateKey
-  && post.node.frontmatter.templateKey.includes('blog-post'));
-  const writingPosts = getTaggedPosts(posts, 'writing');
-  const devPosts = getTaggedPosts(posts, 'developer');
-  const publications = getTaggedPosts(posts, 'publication');
-  const readingPosts = getTaggedPosts(posts, 'reading');
 
-  createSitePage({
-    posts: blogPosts,
-    createPage,
-    pageName: 'blog',
-    templateName: 'blog-all',
-  });
+  const postsArray = getPostsArray(posts);
 
-  createSitePage({
-    posts: writingPosts,
-    createPage,
-    pageName: 'blog/writing',
-    templateName: 'blog-writing',
-  });
-
-  createSitePage({
-    posts: devPosts,
-    createPage,
-    pageName: 'blog/developer',
-    templateName: 'blog-developer',
-  });
-
-  createSitePage({
-    posts: publications,
-    createPage,
-    pageName: 'publications',
-    templateName: 'publication-list',
-  });
-
-  createSitePage({
-    posts: readingPosts,
-    createPage,
-    pageName: 'reading',
-    templateName: 'blog-reading',
+  postsArray.forEach((postObject) => {
+    createSitePage({
+      ...postObject,
+      createPage,
+    });
   });
 
   posts.forEach(({ node }) => {
