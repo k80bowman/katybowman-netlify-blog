@@ -4,16 +4,17 @@ import classNames from 'classnames';
 import propTypes from './types';
 
 const ArticleCard = (props) => {
+  const { post } = props;
+  const { slug } = post.fields;
   const {
     title,
-    category,
-    excerpt,
     date,
-    slug,
+    excerpt,
+    category,
+    imageLink,
     publication,
     pubLink,
-    imageLink,
-  } = props;
+  } = post.frontmatter;
 
   const hasImage = imageLink && imageLink !== 'none';
   const imgClasses = classNames('article-card__excerpt-with-img', {

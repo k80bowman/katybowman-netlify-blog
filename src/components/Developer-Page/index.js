@@ -45,16 +45,7 @@ const DevPage = (props) => {
         <div className="blog-articles">
           {techPosts
             .map(({ node: post }) => (
-              <ArticleCard
-                slug={post.fields.slug}
-                key={post.id}
-                title={post.frontmatter.title}
-                date={post.frontmatter.date}
-                excerpt={post.frontmatter.excerpt}
-                category={post.frontmatter.category}
-                publication={post.frontmatter.publication}
-                pubLink={post.frontmatter.pubLink}
-              />
+              <ArticleCard post={post} />
             ))}
         </div>
       </section>

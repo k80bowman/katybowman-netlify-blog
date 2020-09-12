@@ -79,10 +79,12 @@
 .featured-article {
   .article-card__title {
     font-size: 2rem;
+    margin-bottom: 1rem;
 
     @media #{$desktop-width} {
       font-size: 3rem;
       padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
     }
   }
 }
