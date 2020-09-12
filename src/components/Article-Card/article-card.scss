@@ -15,10 +15,10 @@
   &__excerpt {
     margin-left: 1rem;
     padding-bottom: 1rem;
+    line-height: calc(1.5em + .2vw);
 
     @media #{$desktop-width} {
       font-size: 1.25rem;
-      line-height: 1.5em;
     }
   }
 
