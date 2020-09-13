@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 const getLocation = (tags) => {
   if (tags && tags.includes('developer')) return 'developer';
   if (tags && tags.includes('writing')) return 'writer';
+  if (tags && tags.includes('reading')) return 'reading';
   return 'home';
 };
 
