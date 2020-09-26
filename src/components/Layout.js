@@ -7,12 +7,16 @@ import Gist from 'react-gist';
 
 import Header from './Header';
 import PostBookImage from './Post-Book-Image';
+import ImageWithAttribution from './Image-With-Attribution';
+import PhotoAttribution from './Photo-Attribution';
 import '../main.scss';
 
 const components = {
   pre: (props) => <div {...props} />,
   Gist,
   PostBookImage,
+  ImageWithAttribution,
+  PhotoAttribution,
 };
 
 const TemplateWrapper = ({ children, location }) => (
