@@ -2,22 +2,9 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
-import Gist from 'react-gist';
 
 import Header from './Header';
-import PostBookImage from './Post-Book-Image';
-import ImageWithAttribution from './Image-With-Attribution';
-import PhotoAttribution from './Photo-Attribution';
 import '../main.scss';
-
-const components = {
-  pre: (props) => <div {...props} />,
-  Gist,
-  PostBookImage,
-  ImageWithAttribution,
-  PhotoAttribution,
-};
 
 const TemplateWrapper = ({ children, location }) => (
   <StaticQuery
@@ -61,12 +48,10 @@ const TemplateWrapper = ({ children, location }) => (
 
           <link href="https://fonts.googleapis.com/css?family=Oswald|Merriweather" rel="stylesheet" />
         </Helmet>
-        <MDXProvider components={components}>
-          <div className="main">
-            <Header location={location} />
-            <div className="page-content">{children}</div>
-          </div>
-        </MDXProvider>
+        <div className="main">
+          <Header location={location} />
+          <div className="page-content">{children}</div>
+        </div>
       </div>
     )}
   />

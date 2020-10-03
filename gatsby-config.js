@@ -80,6 +80,9 @@ module.exports = {
                 allMdx(
                   sort: { fields: [frontmatter___date], order: DESC }
                   limit: 1000
+                  filter: { frontmatter: { 
+                    templateKey: { eq: "blog-post" }
+                  }}
                 ) {
                   edges {
                     node {
